@@ -1,0 +1,130 @@
+/* Estilos para las filas al pasar el cursor por encima */
+.registros:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Estilos para los botones */
+  .btn {
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .agregar {
+    padding: 10px 20px;
+  }
+  
+  /* Estilos para el botón primario */
+  .btn-primary {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    color: #fff;
+    padding: 7px 10px;
+  }
+  
+  .btn-success {
+    background-color: #3CB371;
+    border-color: #3CB371;
+    color: #fff;
+    padding: 7px 10px;
+  }
+  .btn-success:hover{
+    background-color: #7CCD7C;
+    border-color: #7CCD7C;
+  }
+  .btn-primary:hover {
+    background-color: #0D47A1;
+    border-color: #0D47A1;
+  }
+  
+  /* Estilos para el botón de peligro */
+  .btn-danger {
+    background-color: #F44336;
+    border-color: #F44336;
+    color: #fff;
+    padding: 7px 10px;
+  }
+  
+  .btn-danger:hover {
+    background-color: #B71C1C;
+    border-color: #B71C1C;
+  }
+  
+  /* Estilos adicionales para la tabla */
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    white-space: normal; /* Hace que el texto dentro de los td vaya hacia abajo */
+  }
+  
+  .table th {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .registro {
+    color: #333;
+    max-width: 130px;
+    word-wrap: break-word;
+  }
+  
+  /* Estilos para la tarjeta */
+  .card {
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Estilos para el contenedor */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para el título */
+  h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  /* Estilos para la columna de acciones */
+
+  
+  .acciones button {
+    overflow: hidden; /* Oculta el contenido que excede las dimensiones del botón */
+    white-space: nowrap; /* Evita que el contenido de los botones se divida en varias líneas */
+  }
+  
+  .table td {
+    border-bottom: none;
+  }
+
+  .table tr {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .search{
+    width: 200px;
+  }
+
+  
+  

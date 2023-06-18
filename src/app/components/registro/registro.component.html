@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <div class="contenedor" [@fadeInOut]>
+    <h2>Registro de usuario</h2>
+    <form>
+        <div class="inputs">
+            <label for="password">Em</label>
+            <input type="text" id="password" name="password" required placeholder="Ingrese ...">
+          </div>
+      <div class="inputs">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required placeholder="Ingrese usuario">
+      </div>
+      <div class="inputs">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required placeholder="Ingrese contraseña">
+      </div>
+      <button class="btn" type="submit" [routerLink]="['/login']">Registrarse</button>
+    </form>
+    <div class="register">
+      ¿Ya tienes una cuenta? <a [routerLink]="['/login']">Iniciar sesión</a>
+    </div>
+  </div>
+
+

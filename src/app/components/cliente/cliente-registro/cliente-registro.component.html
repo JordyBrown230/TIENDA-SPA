@@ -1,0 +1,33 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #actualizarForm="ngForm" (ngSubmit)="onSubmit(actualizarForm)">
+  <h1>Registrar datos de cliente</h1>
+  <div class="form-group">
+    <label>Cedula</label>
+    <input type="text" name="cedula" class="form-control" 
+    required pattern="[0-9]+" [(ngModel)]="cliente.cedula">
+  </div>
+  <br>
+  <div class="form-group">
+      <label>Nombre Completo</label>
+      <input type="text" name="full_name"  class="form-control"
+      required pattern="[a-zA-Z ]+" [(ngModel)]="cliente.nombre">
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Fecha de nacimiento</label><br>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Elige una fecha" name="Fecha de nacimiento" required [(ngModel)]="cliente.fechaNac">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>        
+  </div>  
+  <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email"  class="form-control" required [(ngModel)]="cliente.email">
+  </div>
+  <br>
+  <div class="btn-container">
+    <input type="submit" value="Registrar" class="btn btn-success" style= "margin: 5px;" [disabled]="actualizarForm.invalid">
+    <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/cliente']">Cancelar</button>
+  </div>
+</form>

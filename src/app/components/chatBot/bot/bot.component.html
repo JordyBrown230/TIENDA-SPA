@@ -1,0 +1,34 @@
+<div class="chat-container" [ngClass]="{'open': isOpen, 'close': !isOpen}">
+    <div class="chat-header">
+      C h a t
+      <button class="close-button" (click)="closeChatbot()" title="Cerrar chat">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="clean" (click)="clearChat()" title="Limpiar chat">
+        <i class="fas fa-broom"></i>
+      </button>
+    </div>
+    <div class="chat-messages" #chatMessages>
+      <!-- Aquí se mostrará la conversación -->
+      <div *ngFor="let message of chat" class="message" [ngClass]="{'show': showMessages, 'user-message': message.startsWith('User:'), 'bot-message': message.startsWith('Bot:')}">
+        <span class="message-text">
+            <span *ngIf="message.startsWith('Bot:')" class="botIcon"><i class="fas fa-robot"></i></span>
+                {{ message.substr(message.indexOf(':') + 1) }}
+            <span *ngIf="message.startsWith('User:')" class="userIcon"><i class="fas fa-user"></i></span>   
+        </span>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" [(ngModel)]="inputQuestion" placeholder="Escribe tu mensaje..." (keyup.enter)="sendMessage()" />
+      <button (click)="sendMessage()" class="btn-send m-3" [disabled]="!inputQuestion || inputQuestion.trim().length === 0"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+<div class="chatBot">
+    <button (click)="openChatbot()" class="toggle-button" *ngIf="!isOpen">
+        <i class="fas fa-robot"></i>
+    </button>
+</div>
+
+
+
+  

@@ -1,0 +1,34 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #actualizarForm="ngForm" (ngSubmit)="onSubmit(actualizarForm)">
+    <h1>Actualizar datos de proveedor</h1>
+    <br>
+    <div class="form-group">
+        <label>ID</label>
+        <input type="text" name="idProveedor"  class="form-control"
+        required pattern="[0-9]+" [(ngModel)]="proveedor.idProveedor" disabled>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Nombre compañia</label>
+        <input type="text" name="nombreCompania"  class="form-control"
+        required pattern="[a-zA-Z ]+" [(ngModel)]="proveedor.nombreCompania">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Numero telefonico</label>
+        <input type="text" name="numTelefono"  class="form-control"
+        required pattern="[0-9]+" [(ngModel)]="proveedor.numTelefono">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email"  class="form-control" required [(ngModel)]="proveedor.email">
+    </div>
+    <br>
+    <div class="btn-container">
+      <input type="submit" value="Actualizar" class="btn btn-success" style= "margin: 5px;" [disabled]="actualizarForm.invalid">
+      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/proveedor']">Cancelar</button>
+    </div>
+  </form>
+  
+

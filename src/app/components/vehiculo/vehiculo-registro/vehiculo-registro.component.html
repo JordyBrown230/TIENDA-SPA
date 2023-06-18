@@ -1,0 +1,40 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #registrarForm="ngForm" (ngSubmit)="onSubmit(registrarForm)">
+    <h1>Registrar datos de proveedor</h1>
+    <br>
+    <div class="form-group">
+        <label>Numero de placa</label>
+        <input type="text" name="placa"  class="form-control"
+        required pattern="[A-Za-z0-9]+" [(ngModel)]="vehiculo.placa">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Color</label>
+        <input type="text" name="color"  class="form-control"
+        required pattern="[a-zA-Z ]+" [(ngModel)]="vehiculo.color">
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Tipo vehiculo</label><br>
+        <select class="form-control form-select" required [(ngModel)]="vehiculo.tipo" type="text" name="tipo">
+          <option value="" disabled selected>Seleccione</option>
+          <option value="Todo terreno">Todo terreno</option>
+          <option value="SUV">SUV</option>
+          <option value="Miniban">Miniban</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Moto">Moto</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Modelo</label>
+        <input type="number" min="2000" minlength="4" name="modelo"  class="form-control"
+        required pattern="[0-9]+" [(ngModel)]="vehiculo.modelo">
+    </div>
+    <br>
+    <div class="btn-container">
+      <input type="submit" value="Registrar" class="btn btn-success" style= "margin: 5px;" [disabled]="registrarForm.invalid">
+      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/vehiculo']">Cancelar</button>
+    </div>
+  </form>
+  

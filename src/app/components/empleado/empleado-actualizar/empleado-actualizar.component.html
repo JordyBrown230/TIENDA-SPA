@@ -1,0 +1,52 @@
+
+          <form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <h1>Actualizar datos de empleado</h1>
+            <div class="form-group">
+              <label>ID empleado</label>
+              <input type="text" name="idEmpleado" class="form-control" 
+              required pattern="[0-9]+" [(ngModel)]="empleado.idEmpleado" disabled>
+            </div>
+            <div class="form-group">
+              <label>Cedula</label>
+              <input type="text" name="cedula" class="form-control" 
+              required pattern="[0-9]+" [(ngModel)]="empleado.cedula">
+            </div>
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="full_name"  class="form-control"
+                required pattern="[a-zA-Z ]+" [(ngModel)]="empleado.nombre">
+            </div>
+            <div class="form-group">
+              <label>Fecha de nacimiento</label><br>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Elige una fecha" name="FechaNac" required [(ngModel)]="empleado.fechaNac">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>   
+            </div> 
+              <div class="form-group">
+                <label>Fecha de ingreso</label><br>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha" name="FechaIngreso" required [(ngModel)]="empleado.fechaIngreso">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>          
+            </div>  
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email"  class="form-control" required [(ngModel)]="empleado.email">
+            </div>
+            <div class="form-group">
+                <label>Tipo empleado</label><br>
+                <select class="form-control form-select" required [(ngModel)]="empleado.tipoEmpleado"  name="tipoEmpleado">
+                  <option value="" disabled selected>Seleccione</option>
+                  <option value="Dependiente">Dependiente</option>
+                  <option value="Chofer">Chofer</option>
+                </select>
+            </div>
+            <div class="btn-container">
+                <input type="submit" value="Actualizar" class="btn btn-success" style= "margin: 5px;" [disabled]="registerForm.invalid">
+                <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/empleado']">Cancelar</button>
+            </div>
+
+          </form>

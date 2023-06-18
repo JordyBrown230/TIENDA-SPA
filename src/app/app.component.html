@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 p-0">
+            <div class="sidebar">
+                <h2>Tienda</h2><hr>
+                <nav class="nav flex-column">
+                    <a class="nav-link" [routerLink]="['/login']">
+                      <i class="fas fa-sign-in-alt"></i> 
+                        Login
+                    </a>
+                    <a class="nav-link" [routerLink]="['/empleado']">
+                      <i class="fas fa-user"></i>
+                        Empleado
+                    </a>
+                    <a class="nav-link" [routerLink]="['/cliente']">
+                      <i class="fas fa-users"></i>
+                        Cliente
+                    </a>
+                    <a class="nav-link" [routerLink]="['/envio']">
+                      <i class="fas fa-shipping-fast"></i>
+                        Envíos
+                    </a>
+                    <a class="nav-link" [routerLink]="['/proveedor']">
+                      <i class="fas fa-truck"></i>
+                        Proveedor
+                    </a>
+                    <a class="nav-link" [routerLink]="['/categoria']">
+                      <i class="fas fa-tag"></i>
+                        Categoría
+                    </a>
+                    <a class="nav-link" [routerLink]="['/vehiculo']">
+                      <i class="fas fa-car"></i>
+                        Vehiculo
+                    </a>
+                  </nav>
+                  
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- Contenido principal de la página -->
+            <div class="content">
+                <router-outlet></router-outlet>
+            </div>
+            <app-bot></app-bot>
+        </div>
+    </div>
+</div>
+
+
+
+  
