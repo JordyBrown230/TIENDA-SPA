@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { NavigationEnd,Router } from '@angular/router';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,18 @@ import { NavigationEnd,Router } from '@angular/router';
 export class AppComponent {
   title = 'Tienda-SPA';
   activeLink: HTMLElement | null = null;
+  totalItem: number = 0; 
+  constructor(
+    private elRef: ElementRef,
+    private router: Router,
+    private _cartService: CartService 
+  ) {
 
-  constructor(private elRef: ElementRef, private router: Router) {}
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.QuantityItems();
+  }
 
   @HostListener('click', ['$event'])
   onClick(event: any) {
@@ -33,4 +42,8 @@ export class AppComponent {
     links.forEach((link: HTMLElement) => link.classList.remove('active'));
   }
  
+  QuantityItems() {
+    this.totalItem = this._cartService.getProductCount();
+  }
+  
 }

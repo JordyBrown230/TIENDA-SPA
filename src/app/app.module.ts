@@ -8,6 +8,9 @@ import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -42,6 +45,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { VehiculoTablaComponent } from './components/vehiculo/vehiculo-tabla/vehiculo-tabla.component';
 import { VehiculoRegistroComponent } from './components/vehiculo/vehiculo-registro/vehiculo-registro.component';
 import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,8 @@ import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actu
     VehiculoTablaComponent,
     VehiculoRegistroComponent,
     VehiculoActualizarComponent,
+    CartComponent
+
   ],
   imports: [
     MatSlideToggleModule,
@@ -82,6 +88,9 @@ import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actu
     HttpClientModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatInputModule,
