@@ -18,7 +18,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let categoria of categorias | search: searchText" class="registros">
+            <tr *ngFor="let categoria of categorias | slice:desde:hasta | search: searchText" class="registros">
               <td class="registro">{{ categoria.idCategoria }}</td>
               <td class="registro">{{ categoria.nombre }}</td>
               <td class="registro">{{ categoria.descripcion }}</td>

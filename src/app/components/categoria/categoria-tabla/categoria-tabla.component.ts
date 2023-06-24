@@ -15,6 +15,9 @@ import { FilterComponent } from '../../filter/filter.component';
 })
 export class CategoriaTablaComponent extends FilterComponent {
   categoria: Categoria;
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
   public categorias:Array<Categoria>;
   constructor(
     private _categoriaService: CategoriaService,

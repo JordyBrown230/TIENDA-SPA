@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let orden of ordenes | search: searchText" class="registros">
+            <tr *ngFor="let orden of ordenes | slice:desde:hasta | search: searchText" class="registros">
               <td class="registro">{{ orden.idOrden }}</td>
               <td class="registro">{{ orden.tipoRetiro }}</td>
               <td class="registro">{{ orden.fechaOrden }}</td>

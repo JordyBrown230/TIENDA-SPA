@@ -15,7 +15,9 @@ import { FilterComponent } from '../../filter/filter.component';
 export class OrdenesComponent extends FilterComponent{
   orden: Orden;
   public ordenes: Array<Orden>;
-
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
   constructor(
     private _ordenService: OrdenService,
     private _router: Router,

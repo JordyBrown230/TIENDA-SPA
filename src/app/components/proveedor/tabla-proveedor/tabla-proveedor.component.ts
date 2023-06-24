@@ -15,6 +15,9 @@ import { FilterComponent } from '../../filter/filter.component';
 export class TablaProveedorComponent extends FilterComponent{
   proveedor: Proveedor;
   public proveedores:Array<Proveedor>;
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
   constructor(
     private _proveedorService: ProveedorService,
     private _router: Router,

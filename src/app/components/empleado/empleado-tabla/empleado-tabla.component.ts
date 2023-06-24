@@ -13,7 +13,9 @@ import { FilterComponent } from '../../filter/filter.component';
 export class EmpleadoTablaComponent extends FilterComponent{
     public empleado:Empleado;
     public empleados:Array<Empleado>;
-  
+    pageSize = 10;
+    desde:number =0;
+    hasta:number =10;
     public fechaFormateada:any;
     constructor(
       private _empleadoService:EmpleadoService,

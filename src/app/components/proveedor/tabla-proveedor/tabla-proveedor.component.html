@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let proveedor of proveedores | search: searchText" class="registros">
+            <tr *ngFor="let proveedor of proveedores | slice:desde:hasta | search: searchText" class="registros">
               <td class="registro">{{ proveedor.idProveedor }}</td>
               <td class="registro">{{ proveedor.nombreCompania }}</td>
               <td class="registro">{{ proveedor.numTelefono }}</td>

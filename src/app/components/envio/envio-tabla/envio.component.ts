@@ -19,7 +19,10 @@ export class EnvioComponent extends FilterComponent implements OnInit {
   envios: any[] = [];
   public envio:Envio;
   public modalAbierto: boolean = false;
-
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
+  
   constructor(
     private _envioService:EnvioService,
     public dialog: MatDialog,

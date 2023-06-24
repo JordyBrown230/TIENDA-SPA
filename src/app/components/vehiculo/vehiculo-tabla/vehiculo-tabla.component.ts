@@ -15,6 +15,9 @@ import { FilterComponent } from '../../filter/filter.component';
 export class VehiculoTablaComponent extends FilterComponent{
   vehiculo: Vehiculo;
   public vehiculos:Array<Vehiculo>;
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
   constructor(
     private _vehiculoService: VehiculoService,
     private _router: Router,

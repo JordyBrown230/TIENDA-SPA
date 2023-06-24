@@ -22,7 +22,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let empleado of empleados | search: searchText" class="registros">
+            <tr *ngFor="let empleado of empleados | slice:desde:hasta | search: searchText" class="registros">
               <td class="registro">{{ empleado.idEmpleado }}</td>
               <td class="registro">{{ empleado.cedula }}</td>
               <td class="registro">{{ empleado.nombre }}</td>

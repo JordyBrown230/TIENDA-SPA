@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 import{ ClienteService } from '../../../services/cliente.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../../filter/filter.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cliente',
@@ -13,6 +14,9 @@ import { FilterComponent } from '../../filter/filter.component';
 })
 export class ClienteComponent extends FilterComponent {
   cliente: any;
+  pageSize = 10;
+  desde:number =0;
+  hasta:number =10;
   public clientes:Array<Cliente>;
   constructor(
     private _clienteService: ClienteService,
@@ -51,9 +55,7 @@ export class ClienteComponent extends FilterComponent {
       }
     });
   }
-  
-  
-  
+
     confirmarEliminacion(cedula: string) {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -70,6 +72,14 @@ export class ClienteComponent extends FilterComponent {
         this.eliminarCliente(cedula);
       }
     });
+  }
+
+  cambiarpagina(e:PageEvent){
+    console.log(e);
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
+    console.log(this.desde);
+    console.log(this.hasta);
   }
 
 }

@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let vehiculo of vehiculos | search: searchText" class="registros">
+            <tr *ngFor="let vehiculo of vehiculos | slice:desde:hasta | search: searchText" class="registros">
               <td class="registro">{{ vehiculo.numUnidad }}</td>
               <td class="registro">{{ vehiculo.placa }}</td>
               <td class="registro">{{ vehiculo.color }}</td>

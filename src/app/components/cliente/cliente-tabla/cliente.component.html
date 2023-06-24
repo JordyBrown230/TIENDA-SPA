@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientes | search: searchText" class="registros">
+          <tr *ngFor="let cliente of clientes | slice:desde:hasta | search: searchText">
             <td class="registro">{{ cliente.cedula }}</td>
             <td class="registro">{{ cliente.nombre }}</td>
             <td class="registro">{{ cliente.fechaNac }}</td>
@@ -32,6 +32,8 @@
           </tr>
         </tbody>
       </table>
+      <mat-paginator [length]="clientes.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
+      </mat-paginator> 
     </div>
   </div>
 </div>

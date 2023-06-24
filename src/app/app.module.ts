@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -47,6 +48,7 @@ import { VehiculoRegistroComponent } from './components/vehiculo/vehiculo-regist
 import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
+import { ProductoRegistroComponent } from './components/producto/producto-registro/producto-registro.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
     VehiculoRegistroComponent,
     VehiculoActualizarComponent,
     CartComponent,
-    OrdenesComponent
+    OrdenesComponent,
+    ProductoRegistroComponent
 
   ],
   imports: [
@@ -97,6 +100,7 @@ import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
+    MatPaginatorModule,
     RouterModule
   ],
   providers: [],
