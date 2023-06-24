@@ -1,59 +1,177 @@
-body {
-    font-family: Arial, sans-serif;
-  }
-  .contenedor {
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-  }
 
-  h2 {
-    text-align: center;
-  }
+.main{
+  height:90vh;
+}
 
-  .inputs {
-    margin-bottom: 15px;
-  }
+.register{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 480px;
+  height: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(51, 49, 49, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-bottom: 1.50px solid #03deea;
+  border-top: 1.50px solid #03deea;
+  border-radius: 10px;
+  cursor:pointer;
+}
+.register h1{
+  margin: 0 0 30px;
+  padding: 0;
+  color: #03deea;
+  text-align: center;
+}
 
-  .inputs label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
+.register h4{
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  
+}
 
-  .inputs input {
-    width: 92.5%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+.register .user-box{
+  position: relative;
+}
+.register .user-box input{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: rgb(14, 11, 11);
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #03deea;
+  outline: none;
+  background: transparent;
+}
+.register .user-box label{
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  color: #03deea;
+  pointer-events: none;
+  font-size: 16px;
+  transition: 0.5s;
+}
+.register .user-box  input:focus ~ label,
+.register .user-box input:valid ~ label{
+  top: -20px;
+  left: 0;
+  color: #03deea;
+  font-size: 12px;
+}
 
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  .btn:hover{
-    background-color:  #54a357;
-  }
 
-  .register {
-    text-align: center;
-    margin-top: 10px;
+.register p{
+  color: darkgray;
+  cursor: pointer;
+  font-size:16px;
+}
+.register p span{
+  color: #03deea;
+  float: right;
+}
+.register form .btn-register{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03deea;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  letter-spacing: 4px;
+}
+.register .btn-register:hover{
+  background: #03deea;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03deea,
+              0 0 25px #03deea,
+              0 0 50px #03deea,
+              0 0 100px #03deea;
+}
+.register .btn-register span{
+  position: absolute;
+  display: block;
+}
+.register .btn-register span:nth-child(1){
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03deea);
+  animation: animatedbtn1 1s linear infinite;
+}
+@keyframes animatedbtn1{
+  0%{
+    left: -100%;
   }
+  50%,100%{
+    left: 100%;
+  }
+}
+.register .btn-register span:nth-child(2){
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #03deea);
+  animation: animatedbtn2 1s linear infinite;
+  animation-delay: .25s;
+}
+@keyframes animatedbtn2{
+  0%{
+    top: -100%;
+  }
+  50%,100%{
+    top: 100%;
+  }
+}
 
-  .register a {
-    color: #4285F4;
-    text-decoration: underline;
+.register .btn-register span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03deea);
+  animation: animatedbtn3 1s linear infinite;
+  animation-delay: .5s;
+}
+@keyframes animatedbtn3{
+  0%{
+    right: -100%;
   }
+  50%,100%{
+    right: 100%;
+  }
+}
+
+.register .btn-register span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #03deea);
+  animation: animatedbtn4 1s linear infinite;
+  animation-delay: .75s;
+}
+@keyframes animatedbtn4{
+  0%{
+    bottom: -100%;
+  }
+  50%,100%{
+    bottom: 100%;
+  }
+}
+@media screen and (max-width:430px){
+  .register{
+    width: 90%;
+  }
+}
