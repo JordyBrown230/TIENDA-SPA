@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { EnvioRegistroComponent } from '../envio-registro/envio-registro.component';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../../filter/filter.component';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -86,4 +87,11 @@ export class EnvioComponent extends FilterComponent implements OnInit {
     });
   }
 
+  cambiarpagina(e:PageEvent){
+    console.log(e);
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
+    console.log(this.desde);
+    console.log(this.hasta);
+  }
 }

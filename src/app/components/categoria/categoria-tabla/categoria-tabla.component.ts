@@ -6,6 +6,7 @@ import { server } from '../../../services/global';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../../filter/filter.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categoria-tabla',
@@ -73,5 +74,13 @@ export class CategoriaTablaComponent extends FilterComponent {
         this.eliminarCategoria(categoriaId);
       }
     });
+  }
+
+  cambiarpagina(e:PageEvent){
+    console.log(e);
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
+    console.log(this.desde);
+    console.log(this.hasta);
   }
 }

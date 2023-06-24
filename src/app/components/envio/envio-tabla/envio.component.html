@@ -31,6 +31,8 @@
         </tr>
       </tbody>
     </table>
+    <mat-paginator [length]="envios.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
+    </mat-paginator> 
   </div>
  </div>
 </div>

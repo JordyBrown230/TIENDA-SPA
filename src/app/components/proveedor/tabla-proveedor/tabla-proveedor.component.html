@@ -32,6 +32,8 @@
             </tr>
           </tbody>
         </table>
+        <mat-paginator [length]="proveedores.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
+        </mat-paginator> 
       </div>
     </div>
   </div>

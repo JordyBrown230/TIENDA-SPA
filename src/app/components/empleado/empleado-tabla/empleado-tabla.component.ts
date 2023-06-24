@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 import { FilterComponent } from '../../filter/filter.component';
+import { PageEvent } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-empleado-tabla',
@@ -75,6 +77,13 @@ export class EmpleadoTablaComponent extends FilterComponent{
       });
     }
   
+    cambiarpagina(e:PageEvent){
+      console.log(e);
+      this.desde = e.pageIndex * e.pageSize;
+      this.hasta = this.desde + e.pageSize;
+      console.log(this.desde);
+      console.log(this.hasta);
+    }
   }
   
 
