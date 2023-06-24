@@ -28,12 +28,29 @@
                     <strong class="total">Total : ${{grandTotal}}</strong>
                     <button mat-icon-button color="warn" (click)="emptycart()"><mat-icon>delete</mat-icon></button>
                     <button mat-icon-button color="primary" [routerLink]="['/home']"><mat-icon>store</mat-icon></button>
-                    <button mat-icon-button class="btn-comprar"><mat-icon>shopping_cart</mat-icon></button>
+                    <button mat-icon-button class="btn-comprar" (click)="toggleCheckoutForm()"><mat-icon>shopping_cart</mat-icon></button>
+                </div>
+                <div *ngIf="showCheckoutForm">
+                    <div class="form-group w-25 m-2">
+                      <label for="tipoRetiro">Tipo de retiro</label>
+                      <select class="form-control form-select" id="tipoRetiro" [(ngModel)]="orden.tipoRetiro">
+                          <option [value]="null" disabled selected>Seleccione</option>
+                          <option value="Envio">Envío</option>
+                          <option value="Sucursal">En Sucursal</option>
+                      </select>
+                    </div>
+                    <div *ngIf="orden.tipoRetiro === 'Envio'" class="form-group m-2">
+                      <label for="direccionEnvio">Dirección de envío</label>
+                      <input type="text" class="form-control" id="direccionEnvio" [(ngModel)]="envio.direccion" placeholder="Ingrese dirección de envío">
+                    </div>
+                    <div class="form-group m-2">
+                      <strong>Total a pagar: ${{grandTotal}}</strong>
+                    </div>
+                    <button [disabled]="!orden.tipoRetiro" class="btn btn-primary m-2" (click)="procesarOrden()">  Procesar orden <i class="fa-solid fa-check"></i></button>
                 </div>
         </div>
     </div>
 </ng-container>
-
 
 <ng-container *ngIf="products.length ==0">
     <div class="container">
@@ -48,3 +65,5 @@
         </div>
     </div>
 </ng-container>
+
+

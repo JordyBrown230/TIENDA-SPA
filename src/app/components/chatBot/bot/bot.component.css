@@ -101,6 +101,11 @@ body {
     cursor: pointer;
 }
 
+.chat-input button:hover {
+    background-color: #3b88db;
+    
+}
+
 .chatBot {
     position: fixed;
     bottom: 20px;

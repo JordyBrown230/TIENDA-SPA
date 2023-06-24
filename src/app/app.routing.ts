@@ -22,6 +22,7 @@ import { VehiculoTablaComponent } from './components/vehiculo/vehiculo-tabla/veh
 import { VehiculoRegistroComponent } from './components/vehiculo/vehiculo-registro/vehiculo-registro.component';
 import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
 import { CartComponent } from './components/cart/cart.component';
+import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,7 +48,7 @@ const routes: Routes = [
     { path: 'vehiculo-registro',component:VehiculoRegistroComponent},
     { path: 'vehiculo-actualizar/:numUnidad',component:VehiculoActualizarComponent},
     { path: 'cart',component:CartComponent},
-
+    {path : 'orden' , component:OrdenesComponent},
     
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];

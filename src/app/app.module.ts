@@ -46,6 +46,7 @@ import { VehiculoTablaComponent } from './components/vehiculo/vehiculo-tabla/veh
 import { VehiculoRegistroComponent } from './components/vehiculo/vehiculo-registro/vehiculo-registro.component';
 import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
 import { CartComponent } from './components/cart/cart.component';
+import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CartComponent } from './components/cart/cart.component';
     VehiculoTablaComponent,
     VehiculoRegistroComponent,
     VehiculoActualizarComponent,
-    CartComponent
+    CartComponent,
+    OrdenesComponent
 
   ],
   imports: [

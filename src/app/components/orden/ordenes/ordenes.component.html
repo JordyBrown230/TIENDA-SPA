@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <div class="card shadow-sm rounded">
+      <div class="card-body">
+        <div class="card-body d-flex justify-content-between align-items-center">
+        <h1 class="mb-4">Ordenes</h1>
+        </div>
+        <input class="form-control search" type="text" placeholder="Buscar" [(ngModel)]="searchText">
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID </th>
+              <th>Tipo de retiro</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>IVA</th>
+              <th>Cliente</th>
+              <th>Envío ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let orden of ordenes | search: searchText" class="registros">
+              <td class="registro">{{ orden.idOrden }}</td>
+              <td class="registro">{{ orden.tipoRetiro }}</td>
+              <td class="registro">{{ orden.fechaOrden }}</td>
+              <td class="registro">{{ orden.total }}</td>
+              <td class="registro">{{ orden.ivaTotal }}</td>
+              <td class="registro">{{ orden.cliente }}</td>
+              <td class="registro">{{ orden.envio}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+  
+

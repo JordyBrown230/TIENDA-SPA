@@ -1,12 +1,12 @@
 export class Orden{
     constructor(
-        public idOrden:number,
-        public tipoRetiro:string,
-        public fechaOrden:Date,
-        public total:number,
-        public ivaTotal:number,
-        public envio:number,
-        public cliente:number,
-        public empleado:number
+        public idOrden:number | null = null,
+        public tipoRetiro:string | null = null,
+        public fechaOrden:Date | null = null,
+        public total:number | null = null,
+        public ivaTotal:number | null = null,
+        public envio:number | null = null,
+        public cliente:number | null = null,
+        public empleado:number | null = null
     ){}
 }

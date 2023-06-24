@@ -6,6 +6,7 @@ import { server } from '../../../services/global';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../../filter/filter.component';
+
 @Component({
   selector: 'app-vehiculo-tabla',
   templateUrl: './vehiculo-tabla.component.html',

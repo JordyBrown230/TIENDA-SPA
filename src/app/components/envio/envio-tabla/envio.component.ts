@@ -33,23 +33,24 @@ export class EnvioComponent extends FilterComponent implements OnInit {
     this.getAll();
   }
 
-  getAll(){
+  getAll() {
     this._envioService.getAll().subscribe({
-      next:(response:any)=>{
-        if(response.status==200){
+      next: (response: any) => {
+        if (response.status == 200) {
           this.envios = response.data.map((envio: any) => {
             return {
               ...envio,
-              chofer: envio.chofer.nombre
+              chofer: envio.chofer ? envio.chofer.nombre : 'Sin chofer asignado'
             };
           });
         }
       },
-      error:(err:Error)=>{
+      error: (err: Error) => {
         console.log(err.message);
       }
-    })
+    });
   }
+  
 
   eliminarEnvio(envioId: number){
     this._envioService.delete(envioId).subscribe({
