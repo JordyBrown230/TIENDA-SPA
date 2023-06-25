@@ -1,11 +1,14 @@
+import { Categoria } from "./categoria";
+import { Proveedor } from "./proveedor";
+
 export class Producto{
     constructor(
-        public idProducto:number=0,
-        public nombre:string='',
-        public stock:number=0,
-        public image:string="",
-        public proveedor:number=0,
-        public categoria:number=0,
-        public precioUnitario:number=0
+        public idProducto:| null = null,
+        public nombre:string | null = null,
+        public stock:number| null = null,
+        public image:string | null = null,
+        public proveedor:Proveedor | null = null,
+        public categoria:Categoria | null = null,
+        public precioUnitario:number | null = null
     ){}
 }

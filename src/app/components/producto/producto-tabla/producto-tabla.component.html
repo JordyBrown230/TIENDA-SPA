@@ -26,8 +26,8 @@
               <td class="registro">{{ producto.nombre }}</td>
               <td class="registro">{{ producto.precioUnitario }}</td>
               <td class="registro">{{ producto.stock }}</td>
-              <td class="registro">{{ producto.proveedor }}</td>
-              <td class="registro">{{ producto.categoria }}</td>
+              <td class="registro">{{ producto.proveedor.nombreCompania }}</td>
+              <td class="registro">{{ producto.categoria.nombre}}</td>
               <td class="acciones">
                 <!-- Botones "Editar" y "Eliminar" -->
                 <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/producto-actualizar', producto.cedula]">Editar</button>
