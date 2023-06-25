@@ -33,6 +33,7 @@ import { TelefonoActualizarComponent } from './components/cliente-views/telefono
 import { DireccionTablaComponent } from './components/cliente-views/direccion/direccion-tabla/direccion-tabla.component';
 import { DireccionRegistroComponent } from './components/cliente-views/direccion/direccion-registro/direccion-registro.component';
 import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
+import { ProductoTablaComponent } from './components/producto/producto-tabla/producto-tabla.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -60,6 +61,7 @@ const routes: Routes = [
     { path: 'cart',component:CartComponent},
     { path : 'orden' , component:OrdenesComponent},
     { path : 'producto-registro' , component:ProductoRegistroComponent},
+    { path : 'producto' , component:ProductoTablaComponent},
     { path: 'usuario',component:UsuarioComponent},
     { path:'logout/:sure',component:LoginComponent},
     { path: 'usuario-actualizar/:id', component: UsuarioActualizarComponent },

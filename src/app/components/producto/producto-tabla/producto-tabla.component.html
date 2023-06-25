@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="card shadow-sm rounded">
+      <div class="card-body">
+        <div class="card-body d-flex justify-content-between align-items-center">
+        <h1 class="mb-4">Productos</h1>
+        <!-- Botón "Agregar nuevo" -->
+        <button class="btn btn-success mb-3 agregar" [routerLink]="['/producto-registro']">Agregar</button>
+      </div>
+      <input class="form-control search" type="text" placeholder="Buscar" [(ngModel)]="searchText">  
+      <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Precio unitario</th>
+              <th>Stock</th>
+              <th>Proveedor</th>
+              <th>Categoria</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of productos | slice:desde:hasta | search: searchText">
+              <td class="registro">{{ producto.idProducto }}</td>
+              <td class="registro">{{ producto.nombre }}</td>
+              <td class="registro">{{ producto.precioUnitario }}</td>
+              <td class="registro">{{ producto.stock }}</td>
+              <td class="registro">{{ producto.proveedor }}</td>
+              <td class="registro">{{ producto.categoria }}</td>
+              <td class="acciones">
+                <!-- Botones "Editar" y "Eliminar" -->
+                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/producto-actualizar', producto.cedula]">Editar</button>
+                <button (click)="confirmarEliminacion(producto.cedula)" class="btn btn-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="productos.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
+        </mat-paginator> 
+      </div>
+    </div>
+  </div>

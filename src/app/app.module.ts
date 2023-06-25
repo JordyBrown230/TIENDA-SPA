@@ -56,6 +56,7 @@ import { TelefonoActualizarComponent } from './components/cliente-views/telefono
 import { DireccionTablaComponent } from './components/cliente-views/direccion/direccion-tabla/direccion-tabla.component';
 import { DireccionRegistroComponent } from './components/cliente-views/direccion/direccion-registro/direccion-registro.component';
 import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
+import { ProductoTablaComponent } from './components/producto/producto-tabla/producto-tabla.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { DireccionActualizarComponent } from './components/cliente-views/direcci
     DireccionTablaComponent,
     DireccionRegistroComponent,
     DireccionActualizarComponent,
+    ProductoTablaComponent,
 
   ],
   imports: [

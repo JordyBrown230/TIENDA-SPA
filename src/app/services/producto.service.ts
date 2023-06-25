@@ -31,4 +31,9 @@ import {map} from 'rxjs/operators';
         let header=new HttpHeaders().set('beartoken',token);
         return this._http.post(this.url+"producto/upload",data,{headers:header});
     }
+
+    delete(productoId: number): Observable<any> {
+        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.delete(this.url + 'producto/' + productoId, { headers: header });
+      }
 }
