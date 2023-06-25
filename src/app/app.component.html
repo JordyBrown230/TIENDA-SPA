@@ -45,9 +45,12 @@
                       Cart
                       <div style="font-size: 10px; margin-left: 5px;" class="badge bg-danger">{{totalItem}}</div>
                   </a>
+                  <a *ngIf="identity?.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/orden']">
+                    <i class="fas fa-shopping-bag"></i>
+                      Mis ordenes
+                  </a>
                   <a *ngIf="identity" class="nav-link" [routerLink]="['/logout/1']">
                     <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
-                  
                   </nav>
                   
             </div>

@@ -82,7 +82,6 @@ import { TelefonoRegistrarComponent } from './components/cliente-views/telefono/
     VehiculoActualizarComponent,
     CartComponent,
     OrdenesComponent,
-    OrdenesComponent,
     ProductoRegistroComponent,
     UsuarioComponent,
     UsuarioActualizarComponent,

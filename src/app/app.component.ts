@@ -14,17 +14,27 @@ export class AppComponent {
   totalItem: number = 0; 
   public identity:any;
   private checkIdentity;
+  //public totalOrdenes:any;
 
   constructor(
     private _userService:UsuarioService,
     private elRef: ElementRef,
     private router: Router,
-    private _cartService: CartService 
+    private _cartService: CartService,
   ) {
     this.checkIdentity=setInterval(()=>{
       this.identity=this._userService.getIdentity();
     },10000);
+    //this.totalOrdenes= localStorage.getItem('totalOrdenes');
+    //const user = localStorage.getItem("identity");
+    //if(user){
+      //this.identity = JSON.parse(user);
+    //}
   }
+
+
+
+
 
   ngOnInit() {
     this.QuantityItems();

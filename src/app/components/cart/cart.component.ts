@@ -23,6 +23,7 @@ export class CartComponent implements OnInit {
   public orden:Orden;
   public envio:Envio;
   public detalles: Array<DetalleOrden>;
+  public identity:any;
 
   constructor(
     private _cartService:CartService,
@@ -65,13 +66,14 @@ export class CartComponent implements OnInit {
   }
 
   procesarOrden() {
+    this.identity = localStorage.getItem("identity");
+    const usuario = JSON.parse(this.identity);
     this.cargarDetalles();
     this.orden.total = this.grandTotal;
     this.orden.ivaTotal = 0.13; // esto debe verificarse.
-    this.orden.cliente = 500001214; // luego debe modificarse para agarrar el id del usuario logueado.
+    this.orden.cliente = usuario.cliente; 
     this._ordenService.generarOrden(this.orden, this.envio.direccion,this.detalles).subscribe({
       next: (response: any) => {
-        //console.log(response.message,response.orden,response.detalles);
           Swal.fire('Orden procesada','Orden procesada correctamente!','success');
           this._router.navigate(['/orden']);
           localStorage.removeItem('cartItems');
@@ -81,5 +83,5 @@ export class CartComponent implements OnInit {
       }
     });
   }
-  
+ 
 }

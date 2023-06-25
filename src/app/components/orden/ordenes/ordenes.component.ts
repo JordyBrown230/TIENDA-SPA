@@ -19,6 +19,9 @@ export class OrdenesComponent extends FilterComponent{
   pageSize = 10;
   desde:number =0;
   hasta:number =10;
+  public identity: any;
+  public totalOrdenes: any;
+  public usuario:any;
   constructor(
     private _ordenService: OrdenService,
     private _router: Router,
@@ -35,6 +38,12 @@ export class OrdenesComponent extends FilterComponent{
       next: (response: any) => {
         if (response.status == 200) {
           this.ordenes = response.data;
+          this.identity = localStorage.getItem("identity");
+          this.usuario = JSON.parse(this.identity);
+          if(this.usuario.cliente != null){
+            this.ordenes = this.ordenes.filter((orden) => orden.cliente === this.usuario.cliente);
+          }
+          localStorage.setItem('totalOrdenes', this.ordenes.length.toString());
         }
       },
       error: (err: Error) => {

@@ -14,7 +14,7 @@
               <th>Fecha</th>
               <th>Total</th>
               <th>IVA</th>
-              <th>Cliente</th>
+              <th *ngIf="usuario.empleado != null">Cliente</th>
               <th>Envío ID</th>
             </tr>
           </thead>
@@ -25,7 +25,7 @@
               <td class="registro">{{ orden.fechaOrden }}</td>
               <td class="registro">{{ orden.total }}</td>
               <td class="registro">{{ orden.ivaTotal }}</td>
-              <td class="registro">{{ orden.cliente }}</td>
+              <td class="registro" *ngIf="usuario.empleado != null">{{ orden.cliente }}</td>
               <td class="registro">{{ orden.envio}}</td>
             </tr>
           </tbody>
