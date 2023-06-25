@@ -1,0 +1,42 @@
+<mat-tab-group>
+    <mat-tab label="Telefonos"></mat-tab>
+    <mat-tab label="Direcciones"></mat-tab>
+    <mat-tab label="Cambiar contraseña"></mat-tab>
+  </mat-tab-group>
+
+  <div class="container mt-4">
+    <div class="card shadow-sm rounded">
+      <div class="card-body">
+        <div class="card-body d-flex justify-content-between align-items-center">
+        <h1 class="mb-4">Telefonos</h1>
+        <!-- Botón "Agregar nuevo" -->
+        <button class="btn btn-success mb-3 agregar" [routerLink]="['/cliente-telefono-registrar']">Agregar</button>
+        </div>
+        <input class="form-control search" type="text" placeholder="Buscar" [(ngModel)]="searchText">
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Numero</th>
+              <th>Accionnes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let telefono of telefonos | slice:desde:hasta | search: searchText" class="registros">
+              <td class="registro">{{ telefono.idTelefonosCliente }}</td>
+              <td class="registro">{{ telefono.numTelefono }}</td>
+              <td class="acciones">
+                <!-- Botones "Editar" y "Eliminar" -->
+                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/', telefono.idTelefonosCliente]">Editar</button>
+                <button (click)="confirmarEliminacion(telefono.idTelefonosCliente)" class="btn btn-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="telefonos.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
+        </mat-paginator> 
+      </div>
+    </div>
+  </div>
+  

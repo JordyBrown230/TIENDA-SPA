@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app.routing'; // Importa tu archivo personalizado
+import { MatTabsModule } from '@angular/material/tabs';
 import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { EnvioComponent } from './components/envio/envio-tabla/envio.component';
@@ -49,7 +50,8 @@ import { ProductoRegistroComponent } from './components/producto/producto-regist
 import { UsuarioActualizarComponent } from './components/usuario/usuario-actualizar/usuario-actualizar.component';
 import { UsuarioComponent } from './components/usuario/usuario-tabla/usuario.component';
 import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/usuario-registro.component';
-import { TelefonosComponent } from './components/cliente-views/telefonos/telefonos.component';
+import { TelefonoTablaComponent } from './components/cliente-views/telefono/telefono-tabla/telefono-tabla.component';
+import { TelefonoRegistrarComponent } from './components/cliente-views/telefono/telefono-registrar/telefono-registrar.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,8 @@ import { TelefonosComponent } from './components/cliente-views/telefonos/telefon
     UsuarioComponent,
     UsuarioActualizarComponent,
     UsuarioRegistroComponent,
-    TelefonosComponent,
+    TelefonoTablaComponent,
+    TelefonoRegistrarComponent,
 
   ],
   imports: [
@@ -107,6 +110,7 @@ import { TelefonosComponent } from './components/cliente-views/telefonos/telefon
     MatInputModule,
     MatNativeDateModule,
     MatPaginatorModule,
+    MatTabsModule,
     RouterModule
   ],
   providers: [],
