@@ -24,7 +24,7 @@ export class AppComponent {
   ) {
     this.checkIdentity=setInterval(()=>{
       this.identity=this._userService.getIdentity();
-    },10000);
+    },2000);
     //this.totalOrdenes= localStorage.getItem('totalOrdenes');
     //const user = localStorage.getItem("identity");
     //if(user){
