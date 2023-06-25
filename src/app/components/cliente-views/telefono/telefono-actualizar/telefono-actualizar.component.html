@@ -1,0 +1,14 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #actualizarForm="ngForm" (ngSubmit)="onSubmit(actualizarForm)">
+    <h1>Actualize su numero de telefono</h1>
+    <br>
+    <div class="form-group">
+        <label>Numero Telefono</label>
+        <input type="text" name="numTelefono"  class="form-control"
+        required pattern="[0-9]+" [(ngModel)]="telefonoCliente.numTelefono">
+    </div> 
+    <div class="btn-container">
+      <input type="submit" value="Actualizar" class="btn btn-success" style= "margin: 5px;" [disabled]="actualizarForm.invalid">
+      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/cliente-datos']">Cancelar</button>
+    </div>
+  </form>

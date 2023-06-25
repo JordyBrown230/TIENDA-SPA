@@ -6,13 +6,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TelefonoCliente } from 'src/app/models/telefonoCliente';
-
 @Component({
-  selector: 'app-telefono-registrar',
-  templateUrl: './telefono-registrar.component.html',
-  styleUrls: ['./telefono-registrar.component.css']
+  selector: 'app-telefono-actualizar',
+  templateUrl: './telefono-actualizar.component.html',
+  styleUrls: ['./telefono-actualizar.component.css']
 })
-export class TelefonoRegistrarComponent {
+export class TelefonoActualizarComponent {
   public telefonoCliente:TelefonoCliente;
   private token;
   public identity;
@@ -25,14 +24,19 @@ export class TelefonoRegistrarComponent {
     this.telefonoCliente = new TelefonoCliente();
     this.token=_userService.getToken();
     this.identity=_userService.getIdentity();
+    this._route.params.subscribe(params => {
+      const idTelefonosCliente = params['idTelefonosCliente'];
+      this.buscarTelefono(idTelefonosCliente);
+    });
   }
+
   onSubmit(form:any){
     console.log(this.telefonoCliente);
     this.telefonoCliente.cliente=this.identity.cliente;
-    this._telefonosService.register(this.telefonoCliente).subscribe({
+    this._telefonosService.update(this.telefonoCliente).subscribe({
       next:(response:any)=>{
         console.log(response.message);
-        Swal.fire('¡Registro guardado!', response.message, 'success');
+        Swal.fire('¡Registro actualizado!', response.message, 'success');
         this.mainTable();
       },
       error:(err:HttpErrorResponse)=>{
@@ -46,5 +50,18 @@ export class TelefonoRegistrarComponent {
     setTimeout(() => {
       this._router.navigate(['/cliente-datos']);
     }, 2000);
+  }
+
+  buscarTelefono(telefonoId: number): void {
+    this._telefonosService.getById(telefonoId).subscribe({
+      next: (response: any) => {
+        if (response.status == 200) {
+          this.telefonoCliente = response.data;
+        }
+      },
+      error: (err: Error) => {
+        console.error(err.message);
+      }
+    });
   }
 }

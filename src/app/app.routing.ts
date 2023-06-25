@@ -29,6 +29,7 @@ import { UsuarioComponent } from './components/usuario/usuario-tabla/usuario.com
 import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/usuario-registro.component';
 import { TelefonoTablaComponent } from './components/cliente-views/telefono/telefono-tabla/telefono-tabla.component';
 import { TelefonoRegistrarComponent } from './components/cliente-views/telefono/telefono-registrar/telefono-registrar.component';
+import { TelefonoActualizarComponent } from './components/cliente-views/telefono/telefono-actualizar/telefono-actualizar.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -62,6 +63,7 @@ const routes: Routes = [
     { path: 'usuario-registro', component: UsuarioRegistroComponent }, 
     { path: 'cliente-datos', component: TelefonoTablaComponent }, 
     { path: 'cliente-telefono-registrar', component: TelefonoRegistrarComponent }, 
+    { path: 'cliente-telefono-actualizar/:idTelefonosCliente', component: TelefonoActualizarComponent }, 
 
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];

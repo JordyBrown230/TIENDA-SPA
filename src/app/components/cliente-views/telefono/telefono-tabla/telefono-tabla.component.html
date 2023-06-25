@@ -28,7 +28,7 @@
               <td class="registro">{{ telefono.numTelefono }}</td>
               <td class="acciones">
                 <!-- Botones "Editar" y "Eliminar" -->
-                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/', telefono.idTelefonosCliente]">Editar</button>
+                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/cliente-telefono-actualizar', telefono.idTelefonosCliente]">Editar</button>
                 <button (click)="confirmarEliminacion(telefono.idTelefonosCliente)" class="btn btn-danger btn-sm">Eliminar</button>
               </td>
             </tr>
