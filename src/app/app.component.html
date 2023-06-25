@@ -48,7 +48,7 @@
                   </a>
                   <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/producto']">
                     <i class="fas fa-laptop-mobile"></i>
-                      Ordenes
+                      productos
                   </a>
                   <a *ngIf="identity?.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/cart']">
                     <i class="fas fa-cart-shopping"></i>
