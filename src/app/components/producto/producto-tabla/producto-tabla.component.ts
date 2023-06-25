@@ -8,6 +8,7 @@ import { ProveedorService } from 'src/app/services/proveedor.service';
 import { Proveedor } from 'src/app/models/proveedor';
 import { PageEvent } from '@angular/material/paginator';
 import { FilterComponent } from '../../filter/filter.component';
+import { server } from 'src/app/services/global';
 
 @Component({
   selector: 'app-producto-tabla',
@@ -19,6 +20,7 @@ export class ProductoTablaComponent extends FilterComponent {
   pageSize = 10;
   desde:number =0;
   hasta:number =10;
+  public url:any;
   public productos:Array<Producto>;
   constructor(
     private _productoService: ProductoService,
@@ -83,4 +85,5 @@ export class ProductoTablaComponent extends FilterComponent {
     console.log(this.desde);
     console.log(this.hasta);
   }
+  
 }

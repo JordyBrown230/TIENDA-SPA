@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../filter/filter.component';
 import { CartService } from 'src/app/services/cart.service';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-home',
@@ -21,14 +22,30 @@ export class HomeComponent extends FilterComponent implements OnInit{
   public totalItem : number = 0;
   public grandTotal !: number;
   public url:string;
+  public categorias:any;
   constructor(
     private _productoService: ProductoService,
     private _cartService: CartService,
+    private _categoriaService:CategoriaService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
     super();
     this.url=server.url;
+  }
+
+  getCategories(){
+    this._categoriaService.getAll().subscribe({
+      next:(response:any)=>{
+        if(response.status==200){
+          this.categorias=response.data;
+        }
+      },
+      error:(err:Error)=>{
+        this.categorias=null;
+        console.log(err);
+      }
+    });
   }
 
  ngOnInit(): void {
@@ -46,6 +63,8 @@ export class HomeComponent extends FilterComponent implements OnInit{
       console.log(err.message);
     }
   });
+
+  this.getCategories();
 }
 
 addtocart(item: any) {
