@@ -32,6 +32,7 @@ export class UsuarioRegistroComponent {
   public status:number;
   public fechaFormateadaNac:any;
   public fechaFormateadaIngreso:any;
+  public confirmarPassword:string;
   datosPersonalesEnviados: boolean = false;
 
   constructor(
@@ -43,6 +44,7 @@ export class UsuarioRegistroComponent {
     this.status=-1;
     this.usuario= new Usuario();
     this.empleado= new Empleado();
+    this.confirmarPassword = "";
   }
 
   enviarDatosPersonales(form:any) {
@@ -62,9 +64,9 @@ export class UsuarioRegistroComponent {
     }
   
   enviarDatosUsuario(form:any) {
-    console.log(this.usuario);
     this.obtenerEmpleado(this.empleado.cedula);
     this.usuario.empleado = this.empleado.idEmpleado;
+    this.usuario.tipoUsuario = "empleado";
     this._usuarioService.register(this.usuario).subscribe({
       next:(response:any)=>{
         console.log(response.message);
@@ -82,6 +84,7 @@ export class UsuarioRegistroComponent {
       next: (response: any) => {
         if (response.status == 200) {
           this.empleado = response.data;
+          console.log(this.empleado.idEmpleado);
         }
       },
       error: (err: Error) => {

@@ -32,6 +32,7 @@ export class RegistroComponent {
   public status:number;
   public fechaFormateada:any;
   datosPersonalesEnviados: boolean = false;
+  public confirmarPassword:string;
 
   constructor(
     private _clienteService:ClienteService,
@@ -42,6 +43,7 @@ export class RegistroComponent {
     this.status=-1;
     this.usuario= new Usuario();
     this.cliente= new Cliente();
+    this.confirmarPassword ="";
   }
 
   enviarDatosPersonales(form:any) {
