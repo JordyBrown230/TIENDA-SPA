@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TelefonoCliente } from 'src/app/models/telefonoCliente';
-import{ TelefonosService } from '../../../../services/telefonos.service';
+import { DireccionCliente } from 'src/app/models/direccionCliente';
+import { DireccionService } from 'src/app/services/direccion.service';
 import { timer } from 'rxjs';
 import { server } from '../../../../services/global';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,38 +10,38 @@ import { PageEvent } from '@angular/material/paginator';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-telefono-tabla',
-  templateUrl: './telefono-tabla.component.html',
-  styleUrls: ['./telefono-tabla.component.css']
+  selector: 'app-direccion-tabla',
+  templateUrl: './direccion-tabla.component.html',
+  styleUrls: ['./direccion-tabla.component.css']
 })
-export class TelefonoTablaComponent extends FilterComponent {
-  telefono: TelefonoCliente;
+export class DireccionTablaComponent extends FilterComponent {
+
+  direccion: DireccionCliente;
   pageSize = 10;
   desde:number =0;
   hasta:number =10;
   private token;
   public identity;
-  public telefonos:Array<TelefonoCliente>;
+  public direcciones:Array<DireccionCliente>;
   constructor(
-    private _telefonosService: TelefonosService,
+    private _direccionService: DireccionService,
     private _userService:UsuarioService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
     super();
-    this.telefonos=[];
-    this.telefono = new TelefonoCliente();
+    this.direcciones=[];
+    this.direccion = new DireccionCliente();
     this.token=_userService.getToken();
     this.identity=_userService.getIdentity();
     this.getAll();
   }
-
   getAll(){
-    this._telefonosService.getAll().subscribe({
+    this._direccionService.getAll().subscribe({
       next:(response:any)=>{
         if(response.status==200){
-          this.telefonos=response.data;
-          this.telefonos = this.telefonos.filter((telefonoCliente) => telefonoCliente.cliente === this.identity.cliente);
+          this.direcciones=response.data;
+          this.direcciones = this.direcciones.filter((direccionCliente) => direccionCliente.cliente === this.identity.cliente);
         }
       },
       error:(err:Error)=>{
@@ -51,15 +51,15 @@ export class TelefonoTablaComponent extends FilterComponent {
   }
 
   eliminarTelefono(telefonoId: number) {
-    this._telefonosService.delete(telefonoId).subscribe({
+    this._direccionService.delete(telefonoId).subscribe({
       next: (response: any) => {
-        console.log('telefono eliminado correctamente:', response);
+        console.log('direccion eliminada correctamente:', response);
         this.getAll();
-        Swal.fire('¡Registro eliminado!', 'telefono eliminado correctamente!', 'success');
+        Swal.fire('¡Registro eliminada!', 'direccion eliminada correctamente!', 'success');
       },
       error: (error: any) => {
-        console.error('Error al eliminar el telefono:', error);
-        Swal.fire('¡Error!', 'Error al eliminar la telefono!', 'error');
+        console.error('Error al eliminar el direccion:', error);
+        Swal.fire('¡Error!', 'Error al eliminar la direccion!', 'error');
       }
     });
   }

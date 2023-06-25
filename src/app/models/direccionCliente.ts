@@ -1,7 +1,7 @@
 export class DireccionCliente{
     constructor(
-        public idDireccionesCliente:number,
-        public direccion:string,
-        public cliente:number
+        public idDireccionesCliente:number=0,
+        public direccion:string='',
+        public cliente: string=''
     ){}
 }
