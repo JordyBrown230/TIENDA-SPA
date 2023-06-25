@@ -55,7 +55,7 @@ export class DireccionTablaComponent extends FilterComponent {
       next: (response: any) => {
         console.log('direccion eliminada correctamente:', response);
         this.getAll();
-        Swal.fire('¡Registro eliminada!', 'direccion eliminada correctamente!', 'success');
+        Swal.fire('¡Registro eliminado!', 'direccion eliminada correctamente!', 'success');
       },
       error: (error: any) => {
         console.error('Error al eliminar el direccion:', error);

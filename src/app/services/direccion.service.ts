@@ -45,6 +45,6 @@ export class DireccionService {
 
   getById(direccionId: number): Observable<any>{
     let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-    return this._http.get(this.url+'telefonocliente/'+direccionId,{headers:header});
+    return this._http.get(this.url+'direccioncliente/'+direccionId,{headers:header});
 }
 }

@@ -1,0 +1,14 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #actualizarForm="ngForm" (ngSubmit)="onSubmit(actualizarForm)">
+    <h1>Actualice su direccion</h1>
+    <br>
+    <div class="form-group">
+        <label>Direccion</label>
+        <input type="text" name="direccion"  class="form-control"
+        required pattern="[a-zA-Z0-9., ]+" [(ngModel)]="direccionCliente.direccion">
+    </div> 
+    <div class="btn-container">
+      <input type="submit" value="Actualizar" class="btn btn-success" style= "margin: 5px;" [disabled]="actualizarForm.invalid">
+      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/cliente-direccion']">Cancelar</button>
+    </div>
+  </form>

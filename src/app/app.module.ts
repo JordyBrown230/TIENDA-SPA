@@ -54,6 +54,8 @@ import { TelefonoTablaComponent } from './components/cliente-views/telefono/tele
 import { TelefonoRegistrarComponent } from './components/cliente-views/telefono/telefono-registrar/telefono-registrar.component';
 import { TelefonoActualizarComponent } from './components/cliente-views/telefono/telefono-actualizar/telefono-actualizar.component';
 import { DireccionTablaComponent } from './components/cliente-views/direccion/direccion-tabla/direccion-tabla.component';
+import { DireccionRegistroComponent } from './components/cliente-views/direccion/direccion-registro/direccion-registro.component';
+import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { DireccionTablaComponent } from './components/cliente-views/direccion/di
     TelefonoRegistrarComponent,
     TelefonoActualizarComponent,
     DireccionTablaComponent,
+    DireccionRegistroComponent,
+    DireccionActualizarComponent,
 
   ],
   imports: [

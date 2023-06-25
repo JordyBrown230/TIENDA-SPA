@@ -31,6 +31,8 @@ import { TelefonoTablaComponent } from './components/cliente-views/telefono/tele
 import { TelefonoRegistrarComponent } from './components/cliente-views/telefono/telefono-registrar/telefono-registrar.component';
 import { TelefonoActualizarComponent } from './components/cliente-views/telefono/telefono-actualizar/telefono-actualizar.component';
 import { DireccionTablaComponent } from './components/cliente-views/direccion/direccion-tabla/direccion-tabla.component';
+import { DireccionRegistroComponent } from './components/cliente-views/direccion/direccion-registro/direccion-registro.component';
+import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -66,6 +68,9 @@ const routes: Routes = [
     { path: 'cliente-telefono-registrar', component: TelefonoRegistrarComponent }, 
     { path: 'cliente-telefono-actualizar/:idTelefonosCliente', component: TelefonoActualizarComponent }, 
     { path: 'cliente-direccion', component: DireccionTablaComponent }, 
+    { path: 'cliente-direccion-registrar', component: DireccionRegistroComponent }, 
+    { path: 'cliente-direccion-actualizar/:idDireccionesCliente', component: DireccionActualizarComponent }, 
+
 
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];
