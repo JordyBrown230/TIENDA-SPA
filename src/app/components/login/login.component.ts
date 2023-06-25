@@ -37,7 +37,7 @@ export class LoginComponent {
     private _route: ActivatedRoute
   ){
     this.status=-1;
-    this.usuario= new Usuario();
+    this.usuario= new Usuario(1,"","","","",1);
     this.remember = false;
   }
 
@@ -81,4 +81,35 @@ export class LoginComponent {
     });
 
   }
+
+  ngOnInit(): void {
+    this.logout();
+  }
+
+  logout(){
+    this._route.params.subscribe(
+      params=>{
+        let logout=+params['sure'];
+        if(logout==1){
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Deseas cerrar sesión',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Cerrar sesión',
+            confirmButtonColor: '#dc3545', 
+            cancelButtonText: 'Cancelar',
+            cancelButtonColor: '#28a745' 
+          }).then((result) => {
+            if (result.isConfirmed) {
+              localStorage.removeItem('identity');
+              localStorage.removeItem('token');
+              this._router.navigate(['/home']);
+            }
+          });
+        }
+      }
+    );
+  }
+
 }

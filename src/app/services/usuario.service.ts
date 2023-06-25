@@ -18,6 +18,7 @@ import { Usuario } from '../models/usuario';
     }
     register(usuario:Usuario):Observable<any>{
         let usuarioJson=JSON.stringify(usuario);
+        console.log(usuarioJson);
         let params='data='+usuarioJson;
         let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
         return this._http.post(this.url+'usuario',params,{headers:header});
@@ -78,5 +79,22 @@ import { Usuario } from '../models/usuario';
       
         return this._http.post(this.url + 'user/checktoken', {}, options);
       }
+
+      update(usuario: Usuario): Observable<any> {
+        let envioJson = JSON.stringify(usuario);
+        let params = 'data=' + envioJson;
+        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.put(this.url+'usuario/'+usuario.idUsuario, params, { headers: header });
+    }
+
+      delete(usuarioId: string): Observable<any> {
+        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.delete(this.url+'usuario/'+usuarioId, { headers: header });
+    }
+
+    getById(usuarioId: string): Observable<any>{
+        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        return this._http.get(this.url+'usuario/'+usuarioId,{headers:header});
+    }
 
 }

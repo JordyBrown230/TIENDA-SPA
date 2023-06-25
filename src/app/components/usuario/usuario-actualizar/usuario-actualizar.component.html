@@ -1,0 +1,31 @@
+
+<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #actualizarForm="ngForm" (ngSubmit)="onSubmit(actualizarForm)">
+    <h1>Actualizar datos de usuario</h1>
+    <div class="form-group">
+      <label>Id</label>
+      <input type="text" name="id" class="form-control" 
+      required pattern="[0-9]+" [(ngModel)]="usuario.idUsuario" disabled>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Nombre de Usuario</label>
+        <input type="text" name="nombreUsuario"  class="form-control"
+        required pattern="[a-zA-Z ]+" [(ngModel)]="usuario.nombreUsuario">
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Tipo de Usuario</label><br>
+      <select name="tipoUsuario" class="form-control form-select" [(ngModel)]="usuario.tipoUsuario">
+        <option [value]="null" disabled selected>Seleccione</option>
+        <option value= "admin" selected>Administrador</option>
+        <option value= "cliente" selected>Cliente</option>
+        <option value= "empleado" selected>Empleado</option>
+      </select>
+    </div>  
+    <br>
+    <div class="btn-container">
+      <input type="submit" value="Actualizar" class="btn btn-success" style= "margin: 5px;" [disabled]="actualizarForm.invalid">
+      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/usuario']">Cancelar</button>
+    </div>
+  </form>
+

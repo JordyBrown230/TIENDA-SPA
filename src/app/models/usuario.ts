@@ -6,5 +6,6 @@ export class Usuario{
         public cliente:string | null = null,
         public empleado:number | null = null,
         public tipoUsuario: string | null = null
+
     ){}
 }

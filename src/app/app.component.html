@@ -4,43 +4,45 @@
             <div class="sidebar">
                 <h2>Tienda</h2><hr>
                 <nav class="nav flex-column">
-                    <a class="nav-link" [routerLink]="['/login']">
+                    <a *ngIf="!identity" class="nav-link" [routerLink]="['/login']">
                       <i class="fas fa-sign-in-alt"></i> 
                         Login
                     </a>
-                    <a class="nav-link" [routerLink]="['/empleado']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/empleado']">
                       <i class="fas fa-user"></i>
                         Empleado
                     </a>
-                    <a class="nav-link" [routerLink]="['/cliente']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/cliente']">
                       <i class="fas fa-users"></i>
                         Cliente
                     </a>
-                    <a class="nav-link" [routerLink]="['/envio']">
+                    <a *ngIf="identity && identity.tipoUsuario=='empleado || admin' || identity.tipoUsuario=='empleado'" class="nav-link" [routerLink]="['/envio']">
                       <i class="fas fa-shipping-fast"></i>
                         Envíos
                     </a>
-                    <a class="nav-link" [routerLink]="['/proveedor']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/proveedor']">
                       <i class="fas fa-truck"></i>
                         Proveedor
                     </a>
-                    <a class="nav-link" [routerLink]="['/categoria']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/categoria']">
                       <i class="fas fa-tag"></i>
                         Categoría
                     </a>
-                    <a class="nav-link" [routerLink]="['/vehiculo']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/vehiculo']">
                       <i class="fas fa-car"></i>
                         Vehiculo
                     </a>
-                    <a class="nav-link" [routerLink]="['/orden']">
+                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/orden']">
                       <i class="fas fa-shopping-bag"></i>
                         Ordenes
                     </a>
-                    <a class="nav-link" [routerLink]="['/cart']">
+                    <a *ngIf="identity && identity.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/cart']">
                       <i class="fas fa-cart-shopping"></i>
                         Cart
                         <div style="font-size: 10px; margin-left: 5px;" class="badge bg-danger">{{totalItem}}</div>
                     </a>
+                    <a *ngIf="identity" class="nav-link" [routerLink]="['/logout/1']">
+                      <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
                   </nav>
                   
             </div>

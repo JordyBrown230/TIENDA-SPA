@@ -24,6 +24,9 @@ import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actu
 import { CartComponent } from './components/cart/cart.component';
 import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
 import { ProductoRegistroComponent } from './components/producto/producto-registro/producto-registro.component';
+import { UsuarioActualizarComponent } from './components/usuario/usuario-actualizar/usuario-actualizar.component';
+import { UsuarioComponent } from './components/usuario/usuario-tabla/usuario.component';
+import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/usuario-registro.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -51,8 +54,10 @@ const routes: Routes = [
     { path: 'cart',component:CartComponent},
     {path : 'orden' , component:OrdenesComponent},
     {path : 'producto-registro' , component:ProductoRegistroComponent},
-    
-
+    { path: 'usuario',component:UsuarioComponent},
+    {path:'logout/:sure',component:LoginComponent},
+    { path: 'usuario-actualizar/:id', component: UsuarioActualizarComponent },
+    { path: 'usuario-registro', component: UsuarioRegistroComponent }, 
 
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];

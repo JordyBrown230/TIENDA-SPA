@@ -13,13 +13,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app.routing'; // Importa tu archivo personalizado
@@ -49,6 +46,9 @@ import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actu
 import { CartComponent } from './components/cart/cart.component';
 import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
 import { ProductoRegistroComponent } from './components/producto/producto-registro/producto-registro.component';
+import { UsuarioActualizarComponent } from './components/usuario/usuario-actualizar/usuario-actualizar.component';
+import { UsuarioComponent } from './components/usuario/usuario-tabla/usuario.component';
+import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/usuario-registro.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,11 @@ import { ProductoRegistroComponent } from './components/producto/producto-regist
     VehiculoActualizarComponent,
     CartComponent,
     OrdenesComponent,
-    ProductoRegistroComponent
+    OrdenesComponent,
+    ProductoRegistroComponent,
+    UsuarioComponent,
+    UsuarioActualizarComponent,
+    UsuarioRegistroComponent,
 
   ],
   imports: [
