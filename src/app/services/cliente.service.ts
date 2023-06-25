@@ -12,35 +12,90 @@ import { Cliente } from '../models/cliente';
     constructor(public _http:HttpClient){
         this.url=server.url;
     }
+
+    getToken(){
+        return localStorage.getItem("token");
+      }
+    
     //create
     register(envio:Cliente):Observable<any>{
         console.log(envio);
         let envioJson=JSON.stringify(envio);
         let params='data='+envioJson;
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+
+        if (token) {
+      header = new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('beartoken', token);
+    } else {
+      header = new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded');
+    }
         return this._http.post(this.url+'cliente',params,{headers:header});
     }
     //read
     getAll():Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+    
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.get(this.url+'cliente',{headers:header});
     }
     //update
     update(cliente: Cliente): Observable<any> {
         let envioJson = JSON.stringify(cliente);
         let params = 'data=' + envioJson;
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+    
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.put(this.url+'cliente/'+cliente.cedula, params, { headers: header });
     }
     //delete
     delete(clienteId: string): Observable<any> {
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+    
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.delete(this.url+'cliente/'+clienteId, { headers: header });
     }
 
     //getByID
     getByCed(clienteId: string): Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+    
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.get(this.url+'cliente/'+clienteId,{headers:header});
     }
 

@@ -12,35 +12,90 @@ import { Proveedor } from '../models/proveedor';
     constructor(public _http:HttpClient){
         this.url=server.url;
     }
+
+    getToken(){
+        return localStorage.getItem("token");
+      }
+    
     //create
     register(proveedor:Proveedor):Observable<any>{
         console.log(proveedor);
         let proveedorJson=JSON.stringify(proveedor);
         let params='data='+proveedorJson;
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+     
+            if (token) {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded')
+                .set('beartoken', token);
+            } else {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded');
+            }
         return this._http.post(this.url+'proveedor',params,{headers:header});
     }
     //read
     getAll():Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+     
+            if (token) {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded')
+                .set('beartoken', token);
+            } else {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded');
+            }
         return this._http.get(this.url+'proveedor',{headers:header});
     }
     //update
     update(proveedor: Proveedor): Observable<any> {
         let proveedorJson = JSON.stringify(proveedor);
         let params = 'data=' + proveedorJson;
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.put(this.url+'proveedor/'+proveedor.idProveedor, params, { headers: header });
     }
     //delete
     delete(proveedorId: number): Observable<any> {
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+     
+            if (token) {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded')
+                .set('beartoken', token);
+            } else {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded');
+            }
         return this._http.delete(this.url+'proveedor/'+proveedorId, { headers: header });
     }
 
     //getByID
     getById(proveedorId: number): Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+     
+            if (token) {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded')
+                .set('beartoken', token);
+            } else {
+              header = new HttpHeaders()
+                .set('Content-Type', 'application/x-www-form-urlencoded');
+            }
         return this._http.get(this.url+'proveedor/'+proveedorId,{headers:header});
     }
 

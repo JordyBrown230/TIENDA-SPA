@@ -13,20 +13,53 @@ import { Usuario } from '../models/usuario';
         this.url=server.url;
     }
     getAll():Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
+        
         return this._http.get(this.url+'usuario',{headers:header});
     }
+
     register(usuario:Usuario):Observable<any>{
         let usuarioJson=JSON.stringify(usuario);
-        console.log(usuarioJson);
         let params='data='+usuarioJson;
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.post(this.url+'usuario',params,{headers:header});
     }
+
     login(usuario:Usuario):Observable<any>{
         let usuarioJson=JSON.stringify(usuario);
         let params='data='+usuarioJson;
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded'); 
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
+
         let option={
             headers:header
         }
@@ -77,23 +110,54 @@ import { Usuario } from '../models/usuario';
           headers: header
         };
       
-        return this._http.post(this.url + 'user/checktoken', {}, options);
+        return this._http.post(this.url + 'usuario/checktoken', {}, options);
       }
 
       update(usuario: Usuario): Observable<any> {
         let envioJson = JSON.stringify(usuario);
         let params = 'data=' + envioJson;
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.put(this.url+'usuario/'+usuario.idUsuario, params, { headers: header });
     }
 
       delete(usuarioId: string): Observable<any> {
-        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+         let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
         return this._http.delete(this.url+'usuario/'+usuarioId, { headers: header });
     }
 
     getById(usuarioId: string): Observable<any>{
-        let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let header;
+        let token = this.getToken();
+ 
+        if (token) {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set('beartoken', token);
+        } else {
+          header = new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded');
+        }
+
         return this._http.get(this.url+'usuario/'+usuarioId,{headers:header});
     }
 
