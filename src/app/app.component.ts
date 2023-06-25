@@ -25,11 +25,6 @@ export class AppComponent {
     this.checkIdentity=setInterval(()=>{
       this.identity=this._userService.getIdentity();
     },2000);
-    //this.totalOrdenes= localStorage.getItem('totalOrdenes');
-    //const user = localStorage.getItem("identity");
-    //if(user){
-      //this.identity = JSON.parse(user);
-    //}
   }
 
 
@@ -37,8 +32,8 @@ export class AppComponent {
 
 
   ngOnInit() {
-    this.QuantityItems();
     this.verifyToken();
+    this.QuantityItems();
   }
 
   @HostListener('click', ['$event'])
@@ -61,7 +56,7 @@ export class AppComponent {
   }
  
   QuantityItems() {
-    this.totalItem = this._cartService.getProductCount();
+      this.totalItem = this._cartService.getProductCount();
   }
   
 
