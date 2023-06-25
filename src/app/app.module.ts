@@ -49,6 +49,7 @@ import { ProductoRegistroComponent } from './components/producto/producto-regist
 import { UsuarioActualizarComponent } from './components/usuario/usuario-actualizar/usuario-actualizar.component';
 import { UsuarioComponent } from './components/usuario/usuario-tabla/usuario.component';
 import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/usuario-registro.component';
+import { TelefonosComponent } from './components/cliente-views/telefonos/telefonos.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { UsuarioRegistroComponent } from './components/usuario/usuario-registro/
     UsuarioComponent,
     UsuarioActualizarComponent,
     UsuarioRegistroComponent,
+    TelefonosComponent,
 
   ],
   imports: [
