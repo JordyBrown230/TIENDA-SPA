@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import { NavigationEnd,Router } from '@angular/router';
 import { CartService } from './services/cart.service';
 import { UsuarioService } from './services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -78,6 +79,27 @@ export class AppComponent {
         }
       });
     }, 120000); // 2 minutos 
+  }
+
+  logout(){
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Deseas cerrar sesión',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Cerrar sesión',
+            confirmButtonColor: '#dc3545', 
+            cancelButtonText: 'Cancelar',
+            cancelButtonColor: '#28a745' 
+          }).then((result) => {
+            if (result.isConfirmed) {
+              localStorage.removeItem('identity');
+              localStorage.removeItem('token');
+              this.router.navigate(['/home']);
+            }
+          });
+        
+
   }
 
 }
