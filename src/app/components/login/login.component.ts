@@ -37,7 +37,7 @@ export class LoginComponent {
     private _route: ActivatedRoute
   ){
     this.status=-1;
-    this.usuario= new Usuario(1,"","","","",1);
+    this.usuario= new Usuario();
     this.remember = false;
   }
 

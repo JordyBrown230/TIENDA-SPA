@@ -21,7 +21,7 @@ export class UsuarioActualizarComponent {
     private _router: Router,
     private _route: ActivatedRoute
   ){
-    this.usuario = new Usuario(1, "", "","","",1);
+    this.usuario = new Usuario();
     this.status=-1; 
     this._route.params.subscribe(params => {
       const id = params['id'];

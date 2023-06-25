@@ -1,0 +1,46 @@
+h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 30px;
+}
+
+.btn-success {
+  background-color: #7CCD7C;
+  border-color: #7CCD7C;
+  color: #fff;
+  padding: 7px 10px;
+}
+.btn-success:hover{
+  background-color: #3CB371;
+  border-color: #3CB371;
+}
+
+/* Estilos para el botón de peligro */
+.btn-danger {
+  background-color: #F44336;
+  border-color: #F44336;
+  color: #fff;
+  padding: 7px 10px;
+}
+
+.btn-danger:hover {
+  background-color: #B71C1C;
+  border-color: #B71C1C;
+}
+
+.form-group{
+  padding: 8px;
+}
