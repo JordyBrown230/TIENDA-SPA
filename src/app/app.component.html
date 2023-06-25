@@ -2,7 +2,13 @@
     <div class="row">
         <div class="col-md-3 p-0">
             <div class="sidebar">
-                <h2>Tienda</h2><hr>
+                <h2 class="store-title">
+                  <a class="nav-link"[routerLink]="['/home']">
+                    <i class="fas fa-home home-icon"> </i> 
+                      Tienda
+                  </a>
+                </h2>
+                <hr>
                 <nav class="nav flex-column">
                   <a *ngIf="!identity" class="nav-link" [routerLink]="['/login']">
                     <i class="fas fa-sign-in-alt"></i> 
