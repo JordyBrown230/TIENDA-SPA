@@ -23,6 +23,7 @@ import { VehiculoRegistroComponent } from './components/vehiculo/vehiculo-regist
 import { VehiculoActualizarComponent } from './components/vehiculo/vehiculo-actualizar/vehiculo-actualizar.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrdenesComponent } from './components/orden/ordenes/ordenes.component';
+import { ProductoRegistroComponent } from './components/producto/producto-registro/producto-registro.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -49,7 +50,10 @@ const routes: Routes = [
     { path: 'vehiculo-actualizar/:numUnidad',component:VehiculoActualizarComponent},
     { path: 'cart',component:CartComponent},
     {path : 'orden' , component:OrdenesComponent},
+    {path : 'producto-registro' , component:ProductoRegistroComponent},
     
+
+
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];
 

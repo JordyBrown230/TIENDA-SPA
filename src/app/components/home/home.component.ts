@@ -20,6 +20,7 @@ export class HomeComponent extends FilterComponent implements OnInit{
   public products : any ;
   public totalItem : number = 0;
   public grandTotal !: number;
+  public url:string;
   constructor(
     private _productoService: ProductoService,
     private _cartService: CartService,
@@ -27,6 +28,7 @@ export class HomeComponent extends FilterComponent implements OnInit{
     private _route: ActivatedRoute
   ) {
     super();
+    this.url=server.url;
   }
 
  ngOnInit(): void {

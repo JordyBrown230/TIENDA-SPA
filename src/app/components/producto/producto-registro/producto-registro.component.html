@@ -1,21 +1,50 @@
-<!-- 
-<form class="col-md-6 mr-auto ml-auto card shadow-sm rounded" #registroForm="ngForm" (ngSubmit)="onSubmit(registroForm)">
-    <h1>Registrar datos de categoria</h1>
-    <br>
+
+  <form #newProduct="ngForm" class="col-md-9 mr-auto ml-auto">
     <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" name="nombre"  class="form-control"
-        required pattern="[a-zA-Z ]+" [(ngModel)]="categoria.nombre">
+      <label>Nombre</label>
+      <input class="form-control" type="text" name="nombre"
+        #nombre="ngModel" [(ngModel)]="producto.nombre" required pattern="[a-zA-Z ]+">
+      <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">Utilice solo letras</small>
     </div>
-    <br>
+
     <div class="form-group">
-        <label>Descripcion</label>
-        <input type="text" name="numTelefono"  class="form-control"
-        required pattern="[a-zA-Z ]+" [(ngModel)]="categoria.descripcion">
+      <label>Precio unitario</label>
+      <input class="form-control" type="number" name="precioUnitario"
+        #precioUnitario="ngModel" [(ngModel)]="producto.precioUnitario" required pattern="[0-9]+">
+      <small></small>
     </div>
-    <div class="btn-container">
-      <input type="submit" value="Registrar" class="btn btn-success" style= "margin: 5px;" [disabled]="registroForm.invalid">
-      <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/categoria']">Cancelar</button>
+
+    <div class="form-group">
+      <label>Stock</label>
+      <input class="form-control" type="number" name="stock"
+        #stock="ngModel" [(ngModel)]="producto.stock" required pattern="[0-9]+">
+      <small></small>
     </div>
+
+    <div class="form-group">
+      <label>Categoria</label><br>
+      <select name="categoria" class="form-control" #categoria="ngModel" [(ngModel)]="producto.categoria">
+        <option [value]="null" disabled selected>Seleccione</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">{{ categoria.nombre }}</option>
+      </select>       
+    </div> 
+
+    <div class="form-group">
+      <label>Proveedor</label><br>
+      <select name="proveedor" class="form-control" #proveedor="ngModel" [(ngModel)]="producto.proveedor">
+        <option [value]="null" disabled selected>Seleccione</option>
+        <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">{{ proveedor.nombreCompania }}</option>
+      </select>       
+    </div>  
+
+    <div class="form-group">
+        <input type="file" class="file-input" (change)="uploadImage($event)" #fileUpload/>
+        <button class="upload-btn" (click)="fileUpload.click()">
+            <i class="fas fa-upload">+</i>           
+        </button> {{fileName || "Archivo no ha sido seleccionado"}}
+      <small></small>
+    </div>
+
+    <input type="submit" value="Guardar" class="btn btn-success" 
+       (click)="onSubmit(newProduct)" [disabled]="newProduct.invalid" />
   </form>
-   -->
