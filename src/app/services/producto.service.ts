@@ -16,10 +16,17 @@ import {map} from 'rxjs/operators';
     //create
     register(producto:Producto):Observable<any>{
         console.log(producto);
-        let proveedorJson=JSON.stringify(producto);
-        let params='data='+proveedorJson;
+        let productoJson=JSON.stringify(producto);
+        let params='data='+productoJson;
         let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
         return this._http.post(this.url+'producto',params,{headers:header});
+    }
+
+    update(producto: Producto): Observable<any> {
+        let productoJson = JSON.stringify(producto);
+        let params = 'data=' + productoJson;
+        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.put(this.url + 'producto/' + producto.idProducto, params, { headers: header });
     }
     //read
     getAll():Observable<any>{
@@ -36,4 +43,9 @@ import {map} from 'rxjs/operators';
         let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         return this._http.delete(this.url + 'producto/' + productoId, { headers: header });
       }
+    
+    getById(productoId: number): Observable<any> {
+        let header = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url + 'producto/' + productoId, { headers: header });
+    }
 }

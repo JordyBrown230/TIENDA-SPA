@@ -7,14 +7,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 import { CategoriaService } from 'src/app/services/categoria.service';
-
 @Component({
-  selector: 'app-producto-registro',
-  templateUrl: './producto-registro.component.html',
-  styleUrls: ['./producto-registro.component.css']
+  selector: 'app-producto-actualizar',
+  templateUrl: './producto-actualizar.component.html',
+  styleUrls: ['./producto-actualizar.component.css']
 })
-
-export class ProductoRegistroComponent {
+export class ProductoActualizarComponent {
   public status:number;
   public identity;
   public producto:Producto;
@@ -27,6 +25,8 @@ export class ProductoRegistroComponent {
   private _productoService:ProductoService,
   private _userService: UsuarioService,
   private _proveedorService:ProveedorService,
+  private _router: Router,
+  private _route: ActivatedRoute,
   private _categoriaService:CategoriaService,
   ){
     this.status=-1;
@@ -34,6 +34,10 @@ export class ProductoRegistroComponent {
     this.producto=new Producto();
     this.token=_userService.getToken();
     this.fileName="";
+    this._route.params.subscribe(params => {
+      const idProducto = params['idProducto'];
+      this.buscarProducto(idProducto);
+    });
   }
   ngOnInit(): void {
       this.getCategories();
@@ -88,7 +92,7 @@ export class ProductoRegistroComponent {
   }
   onSubmit(form:any){
     //console.log(this.post);
-    this._productoService.register(this.producto).subscribe({
+    this._productoService.update(this.producto).subscribe({
       next:(response:any)=>{
         if(response.status==200){
           this.status=0;
@@ -101,4 +105,19 @@ export class ProductoRegistroComponent {
     });
   }
 
+  buscarProducto(productoId: number): void {
+    this._productoService.getById(productoId).subscribe({
+      next: (response: any) => {
+        if (response.status == 200) {
+          this.producto = response.data;
+          this.fileName = this.producto.image ?? '';
+          console.log(this.producto);
+        }
+      },
+      error: (err: Error) => {
+        console.error(err.message);
+        //Swal.fire(err.message);
+      }
+    });
+  }
 }

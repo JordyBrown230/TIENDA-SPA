@@ -1,6 +1,6 @@
 
-  <form #newProduct="ngForm" class="col-md-6 mr-auto ml-auto card shadow-sm rounded">
-    <h1>Registar Producto</h1>
+<form #actProduct="ngForm" class="col-md-6 mr-auto ml-auto card shadow-sm rounded">
+    <h1>Actualizar Producto</h1>
     <div class="form-group">
       <label>Nombre</label>
       <input class="form-control" type="text" name="nombre"
@@ -46,8 +46,8 @@
       <small></small>
     </div>
     <div class="btn-container">
-    <input type="submit" value="Guardar" class="btn btn-success" 
-       (click)="onSubmit(newProduct)" [disabled]="newProduct.invalid" />
+    <input type="submit" value="Actualizar" class="btn btn-success" 
+       (click)="onSubmit(actProduct)" [disabled]="actProduct.invalid" />
     <button class="btn btn-danger" style= "margin: 5px;" [routerLink]="['/producto']">Cancelar</button>
     </div>
   </form>

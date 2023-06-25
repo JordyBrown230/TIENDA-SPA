@@ -57,6 +57,7 @@ import { DireccionTablaComponent } from './components/cliente-views/direccion/di
 import { DireccionRegistroComponent } from './components/cliente-views/direccion/direccion-registro/direccion-registro.component';
 import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
 import { ProductoTablaComponent } from './components/producto/producto-tabla/producto-tabla.component';
+import { ProductoActualizarComponent } from './components/producto/producto-actualizar/producto-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ProductoTablaComponent } from './components/producto/producto-tabla/pro
     DireccionRegistroComponent,
     DireccionActualizarComponent,
     ProductoTablaComponent,
+    ProductoActualizarComponent,
 
   ],
   imports: [

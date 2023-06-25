@@ -30,8 +30,8 @@
               <td class="registro">{{ producto.categoria.nombre}}</td>
               <td class="acciones">
                 <!-- Botones "Editar" y "Eliminar" -->
-                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/producto-actualizar', producto.cedula]">Editar</button>
-                <button (click)="confirmarEliminacion(producto.cedula)" class="btn btn-danger btn-sm">Eliminar</button>
+                <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/producto-actualizar', producto.idProducto]">Editar</button>
+                <button (click)="confirmarEliminacion(producto.idProducto)" class="btn btn-danger btn-sm">Eliminar</button>
               </td>
             </tr>
           </tbody>
