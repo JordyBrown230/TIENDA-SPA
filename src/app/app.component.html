@@ -4,45 +4,50 @@
             <div class="sidebar">
                 <h2>Tienda</h2><hr>
                 <nav class="nav flex-column">
-                    <a *ngIf="!identity" class="nav-link" [routerLink]="['/login']">
-                      <i class="fas fa-sign-in-alt"></i> 
-                        Login
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/empleado']">
-                      <i class="fas fa-user"></i>
-                        Empleado
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/cliente']">
-                      <i class="fas fa-users"></i>
-                        Cliente
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='empleado || admin' || identity.tipoUsuario=='empleado'" class="nav-link" [routerLink]="['/envio']">
-                      <i class="fas fa-shipping-fast"></i>
-                        Envíos
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/proveedor']">
-                      <i class="fas fa-truck"></i>
-                        Proveedor
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/categoria']">
-                      <i class="fas fa-tag"></i>
-                        Categoría
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/vehiculo']">
-                      <i class="fas fa-car"></i>
-                        Vehiculo
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='admin' || identity.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/orden']">
-                      <i class="fas fa-shopping-bag"></i>
-                        Ordenes
-                    </a>
-                    <a *ngIf="identity && identity.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/cart']">
-                      <i class="fas fa-cart-shopping"></i>
-                        Cart
-                        <div style="font-size: 10px; margin-left: 5px;" class="badge bg-danger">{{totalItem}}</div>
-                    </a>
-                    <a *ngIf="identity" class="nav-link" [routerLink]="['/logout/1']">
-                      <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                  <a *ngIf="!identity" class="nav-link" [routerLink]="['/login']">
+                    <i class="fas fa-sign-in-alt"></i> 
+                      Login
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/empleado']">
+                    <i class="fas fa-user"></i>
+                      Empleados
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/cliente']">
+                    <i class="fas fa-users"></i>
+                      Clientes
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin'" class="nav-link" [routerLink]="['/usuario']">
+                    <i class="fas fa-users"></i>
+                      Usuarios
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado'" class="nav-link" [routerLink]="['/envio']">
+                    <i class="fas fa-shipping-fast"></i>
+                      Envíos
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/proveedor']">
+                    <i class="fas fa-truck"></i>
+                      Proveedor
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/categoria']">
+                    <i class="fas fa-tag"></i>
+                      Categoría
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/vehiculo']">
+                    <i class="fas fa-car"></i>
+                      Vehiculo
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='admin' || identity?.tipoUsuario=='empleado' " class="nav-link" [routerLink]="['/orden']">
+                    <i class="fas fa-shopping-bag"></i>
+                      Ordenes
+                  </a>
+                  <a *ngIf="identity?.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/cart']">
+                    <i class="fas fa-cart-shopping"></i>
+                      Cart
+                      <div style="font-size: 10px; margin-left: 5px;" class="badge bg-danger">{{totalItem}}</div>
+                  </a>
+                  <a *ngIf="identity" class="nav-link" [routerLink]="['/logout/1']">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                  
                   </nav>
                   
             </div>
