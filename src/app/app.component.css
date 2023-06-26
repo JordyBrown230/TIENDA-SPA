@@ -172,5 +172,10 @@ h1 {
     padding-bottom: 10px;
 }
 
-
+.userLogged {
+    margin: 5px;
+    position: fixed;
+    top: 1%; /* Ajusta la distancia desde la parte superior */
+    right: 2%; /* Ajusta la distancia desde la parte derecha */
+}
   

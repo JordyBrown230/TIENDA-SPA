@@ -89,11 +89,11 @@ export class ProductoRegistroComponent {
   }
   onSubmit(form:any){
     //console.log(this.post);
+    console.log(this.producto);
     this._productoService.register(this.producto).subscribe({
       next:(response:any)=>{
         if(response.status==200){
-          this.status=0;
-          form.reset();
+          console.log()
           Swal.fire('¡Registro guardado!', response.message, 'success');
           this.mainTable();
         }
