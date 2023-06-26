@@ -113,7 +113,7 @@ import { Usuario } from '../models/usuario';
         return this._http.post(this.url + 'usuario/checktoken', {}, options);
       }
 
-      update(usuario: Usuario): Observable<any> {
+    update(usuario: Usuario): Observable<any> {
         let envioJson = JSON.stringify(usuario);
         let params = 'data=' + envioJson;
         let header;

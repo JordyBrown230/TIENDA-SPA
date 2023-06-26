@@ -14,8 +14,9 @@
               <th>Fecha</th>
               <th>Total</th>
               <th>IVA</th>
-              <th *ngIf="usuario.empleado != null">Cliente</th>
+              <th *ngIf="usuario && usuario.empleado != null">Cliente</th>
               <th>Envío ID</th>
+              <th>Detalles</th>
             </tr>
           </thead>
           <tbody>
@@ -25,8 +26,10 @@
               <td class="registro">{{ orden.fechaOrden }}</td>
               <td class="registro">{{ orden.total }}</td>
               <td class="registro">{{ orden.ivaTotal }}</td>
-              <td class="registro" *ngIf="usuario.empleado != null">{{ orden.cliente }}</td>
+              <td class="registro" *ngIf="usuario && usuario.empleado != null">{{ orden.cliente }}</td>
               <td class="registro">{{ orden.envio}}</td>
+              <td><button class="btnModal" (click)="openModal(orden.idOrden)"><i class="fas fa-eye custom-icon"></i>
+              </button></td>
             </tr>
           </tbody>
         </table>
@@ -36,4 +39,49 @@
     </div>
 </div>
   
+<div id="myModal" [ngClass]="{'modal': true, 'show': modalOpen}">
+    <div class="modal-content">
+        <button class="btnCloseModal" (click)="closeModal()"><i class="fas fa-times"></i></button>
+        <table class="table mt-2">
+            <thead>
+              <tr>
+                <th>Orden #</th>
+                <th>Tipo retiro</th>
+                <th>Fecha</th>
+                <th *ngIf="usuario && usuario.empleado != null">Cliente</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{orden.idOrden}}</td>
+                <td>{{orden.tipoRetiro}}</td>
+                <td>{{orden.fechaOrden}}</td>
+                <td *ngIf="usuario && usuario.empleado != null">{{orden.cliente}}</td>
+              </tr>
+            </tbody>
+          </table>
+        <h3>DETALLES</h3>
+      <table class="table table-success table-striped-columns">
+        <thead>
+          <tr>
+            <th>Detalle</th>
+            <th>Cantidad</th>
+            <th>Iva</th>
+            <th>Precio Unidad</th>
+            <th>Producto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of detalles">
+            <td>{{detalle.idDetalleOrden}}</td>
+            <td>{{detalle.cantidad}}</td>
+            <td>{{detalle.ivaUnitario}}</td>
+            <td>{{detalle.precioUnitario}}</td>
+            <td>{{detalle.producto}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Total: ${{orden.total}}</h2>
+    </div>
+</div>
 

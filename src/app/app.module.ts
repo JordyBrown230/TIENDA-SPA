@@ -58,6 +58,7 @@ import { DireccionRegistroComponent } from './components/cliente-views/direccion
 import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
 import { ProductoTablaComponent } from './components/producto/producto-tabla/producto-tabla.component';
 import { ProductoActualizarComponent } from './components/producto/producto-actualizar/producto-actualizar.component';
+import { PasswordComponent } from './components/cliente-views/password/password.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { ProductoActualizarComponent } from './components/producto/producto-actu
     DireccionActualizarComponent,
     ProductoTablaComponent,
     ProductoActualizarComponent,
+    PasswordComponent
 
   ],
   imports: [

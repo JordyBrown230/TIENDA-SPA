@@ -1,3 +1,5 @@
+import { DetalleOrden } from "./detalleOrden";
+
 export class Orden{
     constructor(
         public idOrden:number | null = null,
@@ -7,6 +9,7 @@ export class Orden{
         public ivaTotal:number | null = null,
         public envio:number | null = null,
         public cliente:number | null = null,
-        public empleado:number | null = null
+        public empleado:number | null = null,
+        public detalle_orden: any[] | null = null 
     ){}
 }

@@ -69,6 +69,10 @@ export class HomeComponent extends FilterComponent implements OnInit{
 
 addtocart(item: any) {
   //console.log('addtocart called:', item);
+  // Verificar si existe una variable en el localStorage
+  if (!localStorage.getItem('identity')) {
+    this._router.navigate(['/login']);
+  } 
   this._cartService.addtoCart(item);
 }
 

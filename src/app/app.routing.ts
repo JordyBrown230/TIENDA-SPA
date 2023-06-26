@@ -35,6 +35,7 @@ import { DireccionRegistroComponent } from './components/cliente-views/direccion
 import { DireccionActualizarComponent } from './components/cliente-views/direccion/direccion-actualizar/direccion-actualizar.component';
 import { ProductoTablaComponent } from './components/producto/producto-tabla/producto-tabla.component';
 import { ProductoActualizarComponent } from './components/producto/producto-actualizar/producto-actualizar.component';
+import { PasswordComponent } from './components/cliente-views/password/password.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -74,7 +75,7 @@ const routes: Routes = [
     { path: 'cliente-direccion', component: DireccionTablaComponent }, 
     { path: 'cliente-direccion-registrar', component: DireccionRegistroComponent }, 
     { path: 'cliente-direccion-actualizar/:idDireccionesCliente', component: DireccionActualizarComponent }, 
-
+    {path: 'change-password',component:PasswordComponent },
 
     { path: '**', redirectTo: '/login' } // Asegúrate de agregar el '/' antes de 'login'
 ];

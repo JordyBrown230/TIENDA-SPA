@@ -77,6 +77,7 @@
         </div>
     </div>
 </div>
+<h2 *ngIf="identity" class="userLogged"><i class="far fa-user"></i> {{identity.nombreUsuario}}</h2>
 
 <button class="btnInfo" (click)="openModal()"><i class="fas fa-info-circle"></i></button>
 

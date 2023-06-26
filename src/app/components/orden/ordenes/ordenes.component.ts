@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Renderer2 } from '@angular/core';
 import { Orden } from 'src/app/models/orden';
 import { OrdenService } from '../../../services/orden.service';
 import { timer } from 'rxjs';
@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FilterComponent } from '../../filter/filter.component';
 import { PageEvent } from '@angular/material/paginator';
+import { DetalleOrden } from 'src/app/models/detalleOrden';
 
 @Component({
   selector: 'app-ordenes',
@@ -22,10 +23,16 @@ export class OrdenesComponent extends FilterComponent{
   public identity: any;
   public totalOrdenes: any;
   public usuario:any;
+  modalOpen = false;
+  public detalles:any = [];
+  public idOrden:any;
+  public total:any;
+
   constructor(
     private _ordenService: OrdenService,
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private renderer: Renderer2
   ) {
     super();
     this.ordenes = [];
@@ -58,6 +65,19 @@ export class OrdenesComponent extends FilterComponent{
     this.hasta = this.desde + e.pageSize;
     console.log(this.desde);
     console.log(this.hasta);
+  }
+  
+  openModal(idOrden: any) {
+    this.modalOpen = true;
+    const orden = this.ordenes.find((orden) => orden.idOrden === idOrden);
+    if(orden){
+      this.orden = orden;
+    }
+    this.detalles = orden?.detalle_orden;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
   }
   
 }
