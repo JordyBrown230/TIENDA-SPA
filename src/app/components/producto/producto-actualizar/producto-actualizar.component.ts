@@ -97,10 +97,12 @@ export class ProductoActualizarComponent {
         if(response.status==200){
           this.status=0;
           form.reset();
+          Swal.fire('¡Registro actualizado!', response.message, 'success');
+          this.mainTable();
         }
       },
-      error:(err:Error)=>{
-        this.status=1;
+      error:(err:HttpErrorResponse)=>{
+        Swal.fire('¡Error!', err.error.message + ', favor verifica los datos y vuelve a intentarlo', 'error');
       }
     });
   }
@@ -119,5 +121,11 @@ export class ProductoActualizarComponent {
         //Swal.fire(err.message);
       }
     });
+  }
+
+  mainTable(){
+    setTimeout(() => {
+      this._router.navigate(['/producto']);
+  }, 2000);
   }
 }

@@ -49,6 +49,6 @@ export class EmpleadoService {
 }
   getByCed(empleadoCed: string): Observable<any>{
     let header=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-    return this._http.get(this.url+'empleado/'+empleadoCed,{headers:header});
+    return this._http.get(this.url+'empleado/cedula/'+empleadoCed,{headers:header});
 }
 }

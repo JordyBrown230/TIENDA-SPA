@@ -28,6 +28,7 @@ export class ProductoRegistroComponent {
   private _userService: UsuarioService,
   private _proveedorService:ProveedorService,
   private _categoriaService:CategoriaService,
+  private _router: Router,
   ){
     this.status=-1;
     this.identity=_userService.getIdentity();
@@ -93,12 +94,20 @@ export class ProductoRegistroComponent {
         if(response.status==200){
           this.status=0;
           form.reset();
+          Swal.fire('¡Registro guardado!', response.message, 'success');
+          this.mainTable();
         }
       },
-      error:(err:Error)=>{
-        this.status=1;
+      error:(err:HttpErrorResponse)=>{
+        Swal.fire('¡Error!', err.error.message + ', favor verifica los datos y vuelve a intentarlo', 'error');
       }
     });
+  }
+
+  mainTable(){
+    setTimeout(() => {
+      this._router.navigate(['/producto']);
+  }, 2000);
   }
 
 }

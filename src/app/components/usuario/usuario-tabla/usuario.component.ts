@@ -33,6 +33,7 @@ export class UsuarioComponent extends FilterComponent {
       next:(response:any)=>{
         if(response.status==200){
           this.usuarios=response.data;
+          this.usuarios = this.usuarios.filter((usuario) => usuario.empleado !=null );
         }
       },
       error:(err:Error)=>{

@@ -12,13 +12,22 @@
         <input type="text" name="nombreUsuario"  class="form-control"
         required pattern="[a-zA-Z ]+" [(ngModel)]="usuario.nombreUsuario">
     </div>
+    <div class="form-group" *ngIf="usuario.empleado !=null">
+      <label>Empleado ID</label>
+      <input type="text" name="empleado"  class="form-control"
+      required pattern="[a-zA-Z ]+" [(ngModel)]="usuario.empleado" disabled="true">
+  </div>
+  <div class="form-group">
+    <label>Contraseña</label>
+    <input type="password" name="password"  class="form-control"
+        [(ngModel)]="usuario.password">
+  </div>
     <br>
     <div class="form-group">
       <label>Tipo de Usuario</label><br>
       <select name="tipoUsuario" class="form-control form-select" [(ngModel)]="usuario.tipoUsuario">
         <option value= "" disabled selected>Seleccione</option>
         <option value= "admin" selected>Administrador</option>
-        <option value= "cliente" selected>Cliente</option>
         <option value= "empleado" selected>Empleado</option>
       </select>
     </div>  

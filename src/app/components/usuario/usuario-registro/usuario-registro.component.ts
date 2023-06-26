@@ -53,6 +53,7 @@ export class UsuarioRegistroComponent {
       this._empleadoService.register(this.empleado).subscribe({
         next:(response:any)=>{
           console.log(response.message);
+          this.obtenerEmpleado(this.empleado.cedula);
           Swal.fire('¡Registro guardado!', response.message, 'success');
           this.datosPersonalesEnviados = true;
         },
@@ -64,13 +65,13 @@ export class UsuarioRegistroComponent {
     }
   
   enviarDatosUsuario(form:any) {
-    this.obtenerEmpleado(this.empleado.cedula);
     this.usuario.empleado = this.empleado.idEmpleado;
-    this.usuario.tipoUsuario = "empleado";
+    console.log(this.usuario);
     this._usuarioService.register(this.usuario).subscribe({
       next:(response:any)=>{
         console.log(response.message);
         Swal.fire('¡Registro guardado!', response.message, 'success');
+        this._router.navigate(['/usuario'])
       },
       error:(err:HttpErrorResponse)=>{
         //console.log(err.error.message);

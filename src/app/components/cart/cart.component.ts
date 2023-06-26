@@ -8,6 +8,8 @@ import { OrdenService } from 'src/app/services/orden.service';
 import { DetalleOrden } from 'src/app/models/detalleOrden';
 import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DireccionCliente } from 'src/app/models/direccionCliente';
+import { DireccionService } from 'src/app/services/direccion.service';
 
 
 @Component({
@@ -24,17 +26,21 @@ export class CartComponent implements OnInit {
   public envio:Envio;
   public detalles: Array<DetalleOrden>;
   public identity:any;
+  public direcciones:Array<DireccionCliente>;
 
   constructor(
     private _cartService:CartService,
     private _envioService:EnvioService,
     private _ordenService:OrdenService,
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private direccionService:DireccionService
     ) { 
       this.orden = new Orden();
       this.envio = new Envio();
       this.detalles = new Array<DetalleOrden>;
+      this.direcciones = new Array<DireccionCliente>;
+      this.obtenerDirecciones();
     }
 
   ngOnInit(): void {
@@ -77,6 +83,21 @@ export class CartComponent implements OnInit {
           Swal.fire('Orden procesada','Orden procesada correctamente!','success');
           this._router.navigate(['/orden']);
           localStorage.removeItem('cartItems');
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err.error.message);
+      }
+    });
+  }
+
+  obtenerDirecciones(){
+    this.identity = localStorage.getItem("identity");
+    const usuario = JSON.parse(this.identity);
+    this.direccionService.getAll().subscribe({
+      next: (response: any) => {
+          this.direcciones = response.data;
+          this.direcciones= this.direcciones.filter((direccionCliente) => direccionCliente.cliente === usuario.cliente);
+          console.log(this.direcciones);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.error.message);

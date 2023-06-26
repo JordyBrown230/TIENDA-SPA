@@ -53,7 +53,6 @@
                   <a *ngIf="identity?.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/cart']">
                     <i class="fas fa-cart-shopping"></i>
                       Cart
-                      <div style="font-size: 10px; margin-left: 5px;" class="badge bg-danger">{{totalItem}}</div>
                   </a>
                   <a *ngIf="identity?.tipoUsuario=='cliente'" class="nav-link" [routerLink]="['/orden']">
                     <i class="fas fa-shopping-bag"></i>
@@ -63,7 +62,6 @@
                     <i class="fas fa-address-card"></i>
                       Mi cuenta
                   </a>
-                 
                   <a type="button" *ngIf="identity" class="nav-link" (click)="logout()">
                     <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
                   </nav>
@@ -80,6 +78,18 @@
     </div>
 </div>
 
+<button class="btnInfo" (click)="openModal()"><i class="fas fa-info-circle"></i></button>
+
+
+<div id="myModal" [ngClass]="{'modal': true, 'show': modalOpen}">
+  <div class="modal-content">
+    <button class="btnCloseModal" (click)="closeModal()"><i class="fas fa-times"></i></button>
+      <h1>Desarrolladores</h1>
+      <h2><i class="fas fa-user"></i>  Jordy Palacios Brown</h2>
+      <h2><i class="fas fa-user"></i>  José Francisco Ortiz</h2>
+      <h2><i class="fas fa-user"></i>  Henry Vargas Montiel</h2>
+  </div>
+</div>
 
 
   

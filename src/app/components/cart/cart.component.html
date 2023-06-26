@@ -39,10 +39,18 @@
                           <option value="Sucursal">En Sucursal</option>
                       </select>
                     </div>
-                    <div *ngIf="orden.tipoRetiro === 'Envio'" class="form-group m-2">
-                      <label for="direccionEnvio">Dirección de envío</label>
-                      <input type="text" class="form-control" id="direccionEnvio" [(ngModel)]="envio.direccion" placeholder="Ingrese dirección de envío">
-                    </div>
+                    <div *ngIf="orden.tipoRetiro === 'Envio' && direcciones && direcciones.length > 0" class="form-group w-25 m-2">
+                        <label for="tipoRetiro">Dirección</label>
+                        <select class="form-control form-select" id="direccion" [(ngModel)]="envio.direccion" required>
+                          <option value="" disabled selected>Seleccione una dirección</option>
+                          <option *ngFor="let direccion of direcciones" [value]="direccion.direccion">{{direccion.direccion}}</option>
+                        </select>
+                      </div>
+                      
+                      <div *ngIf="orden.tipoRetiro === 'Envio' && (!direcciones || direcciones.length === 0)" class="form-group m-2">
+                        <label for="direccionEnvio">Dirección de envío</label>
+                        <input type="text" class="form-control" id="direccionEnvio" [(ngModel)]="envio.direccion" placeholder="Ingrese dirección de envío" required>
+                      </div>                      
                     <div class="form-group m-2">
                       <strong>Total a pagar: ${{grandTotal}}</strong>
                     </div>

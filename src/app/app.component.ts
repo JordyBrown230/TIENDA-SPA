@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener,Input,Renderer2 } from '@angular/core';
 import { NavigationEnd,Router } from '@angular/router';
 import { CartService } from './services/cart.service';
 import { UsuarioService } from './services/usuario.service';
@@ -15,6 +15,7 @@ export class AppComponent {
   totalItem: number = 0; 
   public identity:any;
   private checkIdentity;
+  modalOpen = false;
   //public totalOrdenes:any;
 
   constructor(
@@ -22,6 +23,7 @@ export class AppComponent {
     private elRef: ElementRef,
     private router: Router,
     private _cartService: CartService,
+    private renderer: Renderer2
   ) {
     this.checkIdentity=setInterval(()=>{
       this.identity=this._userService.getIdentity();
@@ -100,6 +102,14 @@ export class AppComponent {
           });
         
 
+  }
+
+  openModal() {
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
   }
 
 }

@@ -59,6 +59,14 @@
       <label >Confirmar Contraseña:</label>
       <input  class="form-control" type="password" name="password_confirm" id="password_confirm" [(ngModel)]="confirmarPassword"  required pattern ="^.{8,12}$">
     </div>
+    <div class="form-group">
+      <label>Tipo de Usuario</label><br>
+      <select name="tipoUsuario" class="form-control form-select" [(ngModel)]="usuario.tipoUsuario">
+        <option value= "" disabled selected>Seleccione</option>
+        <option value= "admin" selected>Administrador</option>
+        <option value= "empleado" selected>Empleado</option>
+      </select>
+    </div>  
     <button type="submit" class="btn btn-success"  [disabled]="datosUsuarioForm.invalid || usuario.password !== confirmarPassword">Registrarse</button>
   </form>
   </div>
